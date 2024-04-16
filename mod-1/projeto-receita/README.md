@@ -1,4 +1,4 @@
-# Receita de Cupcake de Café com Chantilly
+# Receita de Cupcake de Café com Chantilly 🧁☕
 
 Este é um projeto simples para uma página de receita de Cupcake de Café com Chantilly.
 Este projeto inclui o código HTML e CSS com responsivo que exibe a receita e fornece instruções passo a passo para fazer Cupcakes de Café com Chantilly deliciosos.
@@ -25,7 +25,7 @@ Para usar este projeto, basta cloná-lo para o seu ambiente de desenvolvimento l
 
 ## Visualização
 
-![Exemplo de Visualização](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-receita/assets/Thumbnail.png?token=GHSAT0AAAAAACP7DV266WV2OKRXPU3HR6UQZQ6ZXLQ)
+![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-receita/assets/Thumbnail.png?token=GHSAT0AAAAAACP7DV266WV2OKRXPU3HR6UQZQ6ZXLQ)
 
 ## Autor
 
