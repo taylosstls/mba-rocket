@@ -1,0 +1,125 @@
+:root {
+  --background-color: #573824;
+  --surface-color: #F0E8C2;
+  --text-color-primary: #291B1A;
+  --text-color-secondary: #573A37;
+  --text-color-on-bg: #F0E8C2;
+}
+
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "Alice", serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0 16px 24px;
+}
+
+.img-cupcake {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1502788804611-469de05dbc69?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#page {
+  width: 100%;
+  max-width: 800px;
+  padding: 24px 24px 16px;
+  border-radius: 24px;
+  margin: 48px auto 24px;
+  background-color: var(--surface-color);
+}
+
+figure {
+  margin-bottom: 24px;
+  width: 100%;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+figure img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+main {
+  margin: 0 24px;
+}
+
+#about, #ingredients, #preparation {
+  margin-bottom: 36px;
+}
+
+h1, h2 {
+  color: var(--text-color-primary);
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+#page p, #page ul li {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color-secondary);
+}
+
+#page ul, #page p {
+  margin-bottom: 16px;
+}
+
+#page ul li {
+  margin-left: 24px;
+}
+
+footer p {
+  color: var(--text-color-on-bg);
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  figure, figure img {
+    max-height: 250px;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+  
+  h2 {
+    font-size: 21px;
+  }
+
+  p, ul li {
+    font-size: 14px;
+  }
+
+  main {
+    margin: 0 16px;
+  }
+  
+}
