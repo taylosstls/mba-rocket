@@ -25,8 +25,12 @@ Para usar este projeto, basta cloná-lo para o seu ambiente de desenvolvimento l
 
 ## Visualização
 
-![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-receita/assets/Thumbnail.png?token=GHSAT0AAAAAACP7DV266WV2OKRXPU3HR6UQZQ6ZXLQ)
+![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-receita/assets/Thumbnail.png)
 
 ## Autor
 
 [Gustavo Teixeira](https://github.com/taylosstls)
+
+## Licença
+
+Este projeto é licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
