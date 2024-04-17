@@ -24,7 +24,7 @@ O projeto Travelgram faz amplo uso da propriedade Flexbox do CSS para criar layo
 
 ## Visualização
 
-![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-travelgram/travelgram-shoot.png?token=GHSAT0AAAAAACP7DV265A35O3KA4VXCAIRKZQ76SSQ)
+![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-travelgram/travelgram-shoot.png)
 
 ## Autor
 
