@@ -6,6 +6,8 @@ Bem-vindo ao Tech News, um projeto de portal de notícias de tecnologia desenvol
 
 [Visão Geral](#visao-geral) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Design no Figma](#design-no-figma) | [Como Executar o Projeto](#executar-o-projeto) | [Contribuindo](#contribuindo) | [Licença](#licenca)
 
+![Preview do Portal de Notícias](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-portal-de-noticias/assets/preview.png)
+
 ## 🚀 Visão Geral
 
 O Tech News é um portal de notícias dedicado à cobertura das últimas novidades e tendências no mundo da tecnologia. O objetivo deste projeto é oferecer aos usuários uma experiência intuitiva e informativa, ao mesmo tempo em que demonstra a aplicação eficaz do layout utilizando o Display Grid do CSS.
