@@ -6,7 +6,7 @@ Este é um projeto simples para uma página de receita de Cupcake de Café com C
 
 ## Menu de Navegação 📜
 
-[Visão Geral](#visao-geral) | [Sobre o Projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Como Contribuir](#como-contribuir) | [Como Usar](#como-usar) | [Visualização](#visualizacao) | [Autor](#autor) | [Licença](#licenca)
+[Visão Geral](#visao-geral) | [Sobre o Projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Como Contribuir](#como-contribuir) | [Como Usar](#como-usar) | [Autor](#autor) | [Licença](#licenca)
 
 ![Preview do Figma](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-receita/assets/Thumbnail.png)
 
