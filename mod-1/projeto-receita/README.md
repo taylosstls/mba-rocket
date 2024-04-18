@@ -2,6 +2,8 @@
 
 Este é um projeto simples para uma página de receita de Cupcake de Café com Chantilly. Este projeto inclui o código HTML e CSS responsivo que exibe a receita e fornece instruções passo a passo para fazer Cupcakes de Café com Chantilly deliciosos.
 
+[FIGMA](https://www.figma.com/community/file/1360315130061454535/pagina-de-receita) 👨‍🎨🖼️
+
 ## Menu de Navegação 📜
 
 [Visão Geral](#visao-geral) | [Sobre o Projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Como Contribuir](#como-contribuir) | [Como Usar](#como-usar) | [Visualização](#visualizacao) | [Autor](#autor) | [Licença](#licenca)
