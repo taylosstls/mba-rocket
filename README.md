@@ -48,7 +48,9 @@ Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em c
 
 ## 👨‍💻 Autor
 
-[Gustavo Teixeira](https://github.com/taylosstls)
+[Gustavo Teixeira](https://github.com/taylosstls)  
+[LinkedIn](https://www.linkedin.com/in/gustavoteixeiralgnt/)  
+[Instagram](https://www.instagram.com/gustavo.lgnt/)
 
 ## 📄 Licença
 
