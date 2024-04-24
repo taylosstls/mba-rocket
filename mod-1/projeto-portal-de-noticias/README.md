@@ -1,6 +1,6 @@
 # 👨‍💻 Tech News
 
-Bem-vindo ao Tech News, um projeto de portal de notícias de tecnologia desenvolvido exclusivamente com HTML e SCSS, com foco na aplicação dos principais conceitos do Display Grid.
+Bem-vindo ao Tech News, um projeto de portal de notícias de tecnologia desenvolvido com HTML e SCSS, o foco da aplicação é em treinar os principais conceitos do Display Grid.
 
 ## Menu de Navegação
 
@@ -24,9 +24,7 @@ O design do Tech News está disponível no Figma para referência e implementaç
 
 ## ⚙️ Como Executar o Projeto
 
-1. Clone este repositório: `git clone https://github.com/seu-usuario/tech-news.git`
-2. Navegue até o diretório do projeto: `cd tech-news`
-3. Abra o arquivo `index.html` em seu navegador web.
+Para usar este projeto, basta cloná-lo para o seu ambiente de desenvolvimento local ou fazer o download dos arquivos diretamente. Depois, você pode abrir o arquivo HTML em seu navegador da web favorito para acessar a homepage do Portal de Notícias de tecnologia!
 
 ## 🤝 Contribuindo
 
