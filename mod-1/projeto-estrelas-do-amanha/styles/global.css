@@ -1,3 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
 :root {
   --font-family: 'Poppins', sans-serif;
   --text: 400 1rem/1.5 var(--font-family);
