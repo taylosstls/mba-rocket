@@ -14,7 +14,12 @@ input.addEventListener('input', () => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
-
+  const regex = /\D+/g
   const value = input.value
+
+  regex.test() ?
+    alert('Padrão encontrado!') :
+    alert('Valor inválido. Digite corretamente')
+
   console.log(value)
 })
