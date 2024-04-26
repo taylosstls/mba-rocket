@@ -20,6 +20,11 @@ img {
   height: auto;
 }
 
+.flex { display: flex; }
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.gap-16 { gap: 16; }
+
 :root {
   --font-family: 'Poppins', sans-serif;
   --text: 400 1rem/1.5 var(--font-family);
@@ -28,6 +33,7 @@ img {
   --text-primary: #292524;
   --text-secondary: #57534E;
   --text-tertiary: #8F8881;
+  --text-quartiary: #A8A29E;
   --text-highlight: #E43A12;
   
   --surface-primary: #FFFFFF;
