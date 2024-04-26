@@ -11,10 +11,17 @@
 
     & main {
       order: 1;
+      padding: 2rem;
+      & .main-container {
+        margin: 0 auto;
+      }
     }
 
-    & main, & aside {
+    & aside {
       padding: 2rem;
+      & .aside-container {
+        margin: 0 auto;
+      }
     }
   }
 }
