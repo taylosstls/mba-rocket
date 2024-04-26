@@ -15,7 +15,7 @@ footer {
 
 /* Estilos do rodapé */
 footer span {
-  color: var(--color-secondary);
+  color: var(--color-tertiary);
   font-size: 1rem;
   font-family: var(--family-ibm-mono);
   margin-bottom: 0.5rem;
@@ -24,6 +24,7 @@ footer span {
 
 footer h1 {
   color: var(--color-text);
+  font-family: var(--family-inter);
   font-weight: 700;
   font-size: 2rem;
   line-height: 3rem;
