@@ -8,7 +8,7 @@ Travelgram é um projeto de site voltado para entusiastas de viagens, oferecendo
 
 [Visão Geral](#visao-geral) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Funcionalidades Principais](#funcionalidades-principais) | [Uso de Flexbox e Responsividade](#uso-de-flexbox-e-responsividade) | [Autor](#autor) | [Licença](#licenca)
 
-![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-travelgram/travelgram-shoot.png)
+![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/html-and-css-module/projeto-travelgram/travelgram-shoot.png)
 
 
 ## 🚀 Visão Geral

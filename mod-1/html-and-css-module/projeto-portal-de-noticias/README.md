@@ -6,7 +6,7 @@ Bem-vindo ao Tech News, um projeto de portal de notícias de tecnologia desenvol
 
 [Visão Geral](#visao-geral) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Design no Figma](#design-no-figma) | [Como Executar o Projeto](#executar-o-projeto) | [Contribuindo](#contribuindo) | [Licença](#licenca)
 
-![Preview do Portal de Notícias](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/projeto-portal-de-noticias/assets/preview.png)
+![Preview do Portal de Notícias](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/html-and-css-module/projeto-portal-de-noticias/assets/preview.png)
 
 ## 🚀 Visão Geral
 
