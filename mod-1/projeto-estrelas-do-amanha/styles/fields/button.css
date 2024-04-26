@@ -1,0 +1,37 @@
+button {
+  all: unset;
+  font-weight: 500;
+  color: var(--text-highlight);
+  padding: .75rem 1.5rem;
+  border-radius: .5rem;
+  border: 1px solid var(--brand-dark);
+
+  cursor: pointer;
+  transition: all .3s;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    text-align: center;
+  }
+
+  &.btn-primary {
+    color: var(--text-white);
+    background-color: var(--brand-dark);
+        
+    &:hover, &:focus {
+      background-color: var(--brand-mid);
+      border-color: var(--brand-mid);
+    }
+  
+  }
+  &.btn-secondary {
+    color: var(--brand-dark);
+    background-color: var(--surface-primary);
+    
+    &:hover, &:focus {
+      outline: .25rem solid var(--surface-secondary);
+      border-color: var(--stroke-highlight);
+      outline-offset: .1px;
+    }
+  }
+}
