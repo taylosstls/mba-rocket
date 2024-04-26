@@ -1,0 +1,22 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis Globais */
+:root {
+  --family-inter: "Inter", sans-serif;
+  --family-ibm-mono: "IBM Plex Mono", monospace;
+  --font-size-base: 16px;
+
+  /* Cores */
+  --color-text: #f1f2f6;
+  --color-background: #141534;
+  --color-border: #2f3279;
+  --color-secondary: #1f2151;
+  --color-accent: #2f34ab;
+  --color-accent-hover: #4a5dcd;
+  --color-placeholder: #b2b8de;
+}
