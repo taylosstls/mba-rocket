@@ -1,8 +1,8 @@
-# Convert - Aplicativo de Conversão de Câmbio Direto ✈️🗺️
+# Convert - Aplicativo de Conversão de Câmbio Direto ✈️
 
 O Convert é um aplicativo simples e intuitivo projetado para ajudá-lo a converter facilmente entre as principais moedas internacionais: dólar (USD), euro (EUR) e libra esterlina (GBP). Desenvolvido como uma ferramenta de aprendizado, o Convert é uma excelente maneira de praticar regras de negócios de expressões regulares (regex), conversão de tipos de dados entre string e número, formatação de moeda usando toLocaleString, e manipulação do DOM com querySelector e event listeners.
 
-[FIGMA](https://www.figma.com/community/file/1360315742205904074/conversor-de-moedas) 👨‍🎨🖼️
+[FIGMA](https://www.figma.com/community/file/1360315742205904074/conversor-de-moedas) 👨‍🎨
 
 ## Menu de Navegação 📜
 
