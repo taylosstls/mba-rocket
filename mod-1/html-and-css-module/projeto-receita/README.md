@@ -33,7 +33,9 @@ Para usar este projeto, basta cloná-lo para o seu ambiente de desenvolvimento l
 
 ## 👨‍💻 Autor
 
-[Gustavo Teixeira](https://github.com/taylosstls)
+[Gustavo Teixeira](https://github.com/taylosstls)  
+[LinkedIn](https://www.linkedin.com/in/gustavoteixeiralgnt/)  
+[Instagram](https://www.instagram.com/gustavo.lgnt/)
 
 ## 📄 Licença
 

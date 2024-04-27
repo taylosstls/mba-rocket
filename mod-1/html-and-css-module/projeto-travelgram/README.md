@@ -36,7 +36,9 @@ O projeto Travelgram faz amplo uso da propriedade Flexbox do CSS para criar layo
 
 ## 👨‍💻 Autor
 
-Travelgram é mantido por [Gustavo Teixeira](https://github.com/taylosstls)
+[Gustavo Teixeira](https://github.com/taylosstls)  
+[LinkedIn](https://www.linkedin.com/in/gustavoteixeiralgnt/)  
+[Instagram](https://www.instagram.com/gustavo.lgnt/)
 
 ## 📄 Licença
 

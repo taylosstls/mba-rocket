@@ -47,6 +47,7 @@ window.addEventListener('load', () => {
     try {
       description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`
       result.textContent = `${formatCurrencyBRL(priceChange * price).replace('R$', '').trim()} Reais`
+      
       footer.classList.add('show-result')
       
     } catch (error) {
