@@ -8,7 +8,7 @@ O aplicativo Refund é uma ferramenta projetada para simplificar o processo de s
 
 [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Funcionalidades Principais](#funcionalidades-principais) | [Autor](#autor) | [Licença](#licenca)
 
-![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/js-module/project-refund/img/thumbnail.png)
+![Preview do FIGMA](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/js-module/project-refund/img/Thumbnail.png)
 
 ## 💻 Tecnologias Utilizadas
 
