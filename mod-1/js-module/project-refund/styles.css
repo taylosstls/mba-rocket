@@ -216,7 +216,7 @@ aside ul {
 .expense {
   display: flex;
   align-items: center;
-  height: 38px;
+  min-height: 38px;
 }
 
 .expense img:first-child {

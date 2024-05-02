@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
       category_id: category.value,
       category_name: category.options[category.selectedIndex].text,
       amount: amount.value,
-      created_at: new Date()
+      created_at: `${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()}`,
     }
 
     expenseAdd(newExpense)
@@ -54,8 +54,9 @@ window.addEventListener('load', () => {
         <li class="expense">
           <img src="./img/${newExpense.category_id}.svg" alt="Ícone de ${newExpense.category_name}" />
           <div class="expense-info">
+            <span><small>${newExpense.created_at}</small><br/>
+            ${newExpense.category_name}</span>
             <strong>${newExpense.expense}</strong>
-            <span>${newExpense.category_name}</span>
           </div>
           <span class="expense-amount" data-price=${newExpense.amount.replace('R$', '').trim()}><small>R$</small>${newExpense.amount.replace('R$', '').trim()}</span>
           <img src="./img/remove.svg" alt="remover" class="remove-icon" />
