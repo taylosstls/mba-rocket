@@ -32,9 +32,20 @@ window.addEventListener('load', () => {
     }
 
     expenseAdd(newExpense)
+    updateTotals()
 
     form.reset()
-  
+    expense.focus()
+  })
+
+  expenseList.addEventListener('click', function(event) {
+    //Verifica se o elemento clicado é o ícone X
+    if(event.target.classList.contains('remove-icon')) {
+      const item = event.target.closest('.expense')
+      item.remove()
+
+      updateTotals()
+    }
   })
 
   function expenseAdd(newExpense) {
@@ -46,7 +57,7 @@ window.addEventListener('load', () => {
             <strong>${newExpense.expense}</strong>
             <span>${newExpense.category_name}</span>
           </div>
-          <span class="expense-amount"><small>R$</small>${newExpense.amount.replace('R$', '').trim()}</span>
+          <span class="expense-amount" data-price=${newExpense.amount.replace('R$', '').trim()}><small>R$</small>${newExpense.amount.replace('R$', '').trim()}</span>
           <img src="./img/remove.svg" alt="remover" class="remove-icon" />
         </li>
       `
@@ -59,6 +70,31 @@ window.addEventListener('load', () => {
     }
   }
 
+  function updateTotals() {
+    try {
+      const items = expenseList.children
+      const expenseQtd = document.querySelector('header .expense-qtd')
+      const totalExpense = document.querySelector('header h2')
+      
+      expenseQtd.textContent = `${items.length} ${items.length > 1 ? 'quantidades' : 'quantidade'}`
+  
+      let totalPrice = 0
+
+      for (let item = 0; item < items.length; item++) {
+        const itemAmount = items[item].querySelector('.expense-amount')
+        const dataPrice = itemAmount.getAttribute('data-price')
+
+        totalPrice += parseFloat(dataPrice.replace(/\./g, '').replace(',', '.'))
+      }
+
+      totalExpense.innerHTML = `<small>R$</small> ${formatCurrencyBRL(totalPrice).replace('R$', '').trim()}`
+  
+    } catch (error) {
+      alert('Não foi possível atualizar a o valor total da lista')
+      console.log(error)
+    }
+  }
+
   function formatCurrencyBRL(value) {
     value = value.toLocaleString('pt-BR', {
       style: 'currency',
@@ -67,4 +103,6 @@ window.addEventListener('load', () => {
 
     return value
   }
+
+  updateTotals()
 })
