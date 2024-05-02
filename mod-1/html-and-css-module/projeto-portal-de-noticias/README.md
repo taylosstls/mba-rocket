@@ -4,7 +4,7 @@ Bem-vindo ao Tech News, um projeto de portal de notícias de tecnologia desenvol
 
 ## Menu de Navegação
 
-[Visão Geral](#visao-geral) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Design no Figma](#design-no-figma) | [Como Executar o Projeto](#executar-o-projeto) | [Contribuindo](#contribuindo) | [Licença](#licenca)
+[Visão Geral](#visao-geral) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Design no Figma](#design-no-figma) | [Como Executar o Projeto](#executar-o-projeto) | [Contribuindo](#contribuindo) | [Autor](#autor) | [Licença](#licenca)
 
 ![Preview do Portal de Notícias](https://raw.githubusercontent.com/taylosstls/mba-rocket/main/mod-1/html-and-css-module/projeto-portal-de-noticias/assets/preview.png)
 
@@ -29,6 +29,12 @@ Para usar este projeto, basta cloná-lo para o seu ambiente de desenvolvimento l
 ## 🤝 Contribuindo
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 👨‍💻 Autor
+
+[Gustavo Teixeira](https://github.com/taylosstls)  
+[LinkedIn](https://www.linkedin.com/in/gustavoteixeiralgnt/)  
+[Instagram](https://www.instagram.com/gustavo.lgnt/)
 
 ## 📝 Licença
 

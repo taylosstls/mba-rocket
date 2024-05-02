@@ -1,0 +1,25 @@
+/* Botão */
+button {
+  height: 3.25rem;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  font-family: var(--family-inter);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 3rem;
+  outline: 0;
+}
+
+/* Estilo de botão ao passar o mouse */
+button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* Estilo de botão ao focar */
+button:focus {
+  outline: 1.5px solid var(--color-accent);
+}
