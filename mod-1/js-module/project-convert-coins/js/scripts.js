@@ -10,13 +10,11 @@ window.addEventListener('load', () => {
 
   // Match and replace non-alphabetic characters value with an empty string
   amount.addEventListener('input', () => {
-    const inputValue = amount.value;
-    const hasCharactersRegex = /^\d*([,.]?\d{0,2})?$/;
+    let value = amount.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    value = Number(value) / 100; // Converte para número e divide por 100
+    amount.value = value.toFixed(2); // Formata o número para exibir duas casas decimais
+});
 
-    if (!hasCharactersRegex.test(inputValue)) {
-        amount.value = inputValue.slice(0, -1); // Remove o último caractere inválido
-    }
-  })
 
   form.onsubmit = (e) => {
     e.preventDefault()
