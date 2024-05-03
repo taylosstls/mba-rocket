@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Letícia Teixeira"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Mouse",
+      "price": 150.25
+    },
+    {
+      "id": "2",
+      "name": "Teclado",
+      "price": 90.5
+    },
+    {
+      "id": "3",
+      "name": "Monitor",
+      "price": 500
+    },
+    {
+      "id": "1714768051272",
+      "name": "Mesa Gamer",
+      "price": "1200"
+    },
+    {
+      "id": "1714768145904",
+      "name": "Cadeira Gamer",
+      "price": "2000"
+    }
+  ]
+}
