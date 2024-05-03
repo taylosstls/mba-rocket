@@ -14,7 +14,6 @@ window.addEventListener('load', () => {
     value = Number(value) / 100
 
     amount.value = formatCurrencyBRL(value)
-
   }
 
   // Captura o envio de submit e faz o prevent
@@ -76,17 +75,14 @@ window.addEventListener('load', () => {
       const items = expenseList.children
       const expenseQtd = document.querySelector('header .expense-qtd')
       const totalExpense = document.querySelector('header h2')
-      
+
       expenseQtd.textContent = `${items.length} ${items.length > 1 ? 'quantidades' : 'quantidade'}`
-  
-      let totalPrice = 0
 
-      for (let item = 0; item < items.length; item++) {
-        const itemAmount = items[item].querySelector('.expense-amount')
-        const dataPrice = itemAmount.getAttribute('data-price')
-
-        totalPrice += parseFloat(dataPrice.replace(/\./g, '').replace(',', '.'))
-      }
+      const totalPrice = Array.from(items).reduce((accumulator, currentItem) => {
+          const itemAmount = currentItem.querySelector('.expense-amount')
+          const dataPrice = itemAmount.getAttribute('data-price')
+          return accumulator + parseFloat(dataPrice.replace(/\./g, '').replace(',', '.'))
+      }, 0)
 
       totalExpense.innerHTML = `<small>R$</small> ${formatCurrencyBRL(totalPrice).replace('R$', '').trim()}`
   
