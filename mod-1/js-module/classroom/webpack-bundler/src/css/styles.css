@@ -1,0 +1,9 @@
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+}
