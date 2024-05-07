@@ -10,3 +10,6 @@ import "../libs/dayjs.js"
 
 // Modules
 import "../modules/form/submit.js"
+import "../modules/form/date-change.js"
+
+import "../modules/pageloaded.js"
