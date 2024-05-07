@@ -26,8 +26,6 @@ export function schedulesShow({ dailySchedules }) {
       
       const hour = dayjs(schedule.when).hour()
 
-      console.log(hour, item)
-
       // Renderiza o agendamento na sessão (manhã / tarde / noite)
       if (hour <= 12) { periodMorning.innerHTML += item }
       else if (hour > 12 && hour <= 18) { periodAfternoon.innerHTML += item }
