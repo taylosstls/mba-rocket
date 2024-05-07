@@ -1,3 +1,14 @@
 {
-    "schedules": []
+  "schedules": [
+    {
+      "id": 1715103106217,
+      "name": "Gustavo Teixeira",
+      "when": "2024-05-08T18:00:00.000Z"
+    },
+    {
+      "id": 1715105213729,
+      "name": "Celia",
+      "when": "2024-05-08T00:00:00.000Z"
+    }
+  ]
 }
