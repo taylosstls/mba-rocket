@@ -20,7 +20,6 @@ export function hoursLoad({ date, dailySchedules }) {
 
     // Verifica se a hora está disponível
     const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
-    console.log(scheduleHour, isHourPast)
   
     const available = !unavailableHours.includes(hour) && !isHourPast
 
