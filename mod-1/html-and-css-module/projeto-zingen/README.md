@@ -2,7 +2,7 @@
 
 Zingen é uma Landing Page de marketing responsiva de um aplicativo de Karaokê, oferecendo uma plataforma simples feita apenas com HTML e CSS (flex e grid). O objetivo é explicar aos usuários o que é o aplicativo com o objetivo de levar à store do seu celular e efetuar o download da aplicação.
 
-[FIGMA](https://www.figma.com/community/file/1371886246180677672) 👨‍🎨🖼️
+[FIGMA](https://www.figma.com/community/file/1371886246180677672) 👨‍🎨
 
 ## Menu de Navegação 📜
 
