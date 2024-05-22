@@ -10,6 +10,10 @@
   padding-block: var(--py-xl);
 }
 
+.pb-xl {
+  padding-bottom: var(--py-xl);
+}
+
 .px-lg {
   padding-inline: var(--px-lg);
 }
