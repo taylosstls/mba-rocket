@@ -49,7 +49,7 @@
   display: grid;
 }
 
-@media (width >= 80em) {
+@media screen and (width >= 80em) {
   .container {
     --max-width: 80rem;
   }
