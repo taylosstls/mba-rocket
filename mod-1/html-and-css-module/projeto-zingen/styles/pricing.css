@@ -47,7 +47,7 @@
 
   & li {
     color: var(--text-color-secondary);
-    background: url(../assets/icons/Check.svg) no-repeat;
+    background: url(../assets/icons/check.svg) no-repeat;
     padding-left: 2rem;
   }
 
