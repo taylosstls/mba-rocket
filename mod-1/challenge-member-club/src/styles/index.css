@@ -1,0 +1,12 @@
+/* Reset  */
+@import "global.css";
+
+/* Imports from FIGMA */
+@import "typography.css";
+@import "colors.css";
+
+@import "header.css";
+@import "profile-area.css";
+@import "cuts-history.css";
+@import "fidelity-area.css";
+@import "gift-reach.css";
