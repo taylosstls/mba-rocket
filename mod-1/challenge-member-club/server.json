@@ -1,10 +1,14 @@
 {
   "clients": [
     {
-      "id": "124-537-835-230",
+      "id": "000-000-000-000",
       "name": "Natália Miranda",
       "clientSince": "18/09/2023",
       "appointmentHistory": [
+        {
+          "date": "12/06/2024",
+          "time": "18:30"
+        },
         {
           "date": "29/04/2024",
           "time": "18:30"
@@ -37,7 +41,7 @@
       }
     },
     {
-      "id": "207-245-699-104",
+      "id": "111-111-111-111",
       "name": "Capitão Nascimento",
       "clientSince": "12/04/2023",
       "appointmentHistory": [
@@ -65,7 +69,7 @@
       }
     },
     {
-      "id": "523-114-876-908",
+      "id": "222-222-222-222",
       "name": "Sansão",
       "clientSince": "15/07/2023",
       "appointmentHistory": [
@@ -87,9 +91,72 @@
         }
       ],
       "loyaltyCard": {
-        "totalCuts": 5,
-        "cutsNeeded": 8,
-        "cutsRemaining": 3
+        "totalCuts": 4,
+        "cutsNeeded": 10,
+        "cutsRemaining": 6
+      }
+    },
+    {
+      "id": "333-333-333-333",
+      "name": "Cliente Sem Cortes",
+      "clientSince": "01/01/2023",
+      "appointmentHistory": [],
+      "loyaltyCard": {
+        "totalCuts": 0,
+        "cutsNeeded": 10,
+        "cutsRemaining": 10
+      }
+    },
+    {
+      "id": "444-444-444-444",
+      "name": "Cliente com 10 Cortes",
+      "clientSince": "01/01/2022",
+      "appointmentHistory": [
+        {
+          "date": "29/04/2024",
+          "time": "18:30"
+        },
+        {
+          "date": "16/03/2024",
+          "time": "17:00"
+        },
+        {
+          "date": "01/02/2024",
+          "time": "17:30"
+        },
+        {
+          "date": "03/01/2024",
+          "time": "15:00"
+        },
+        {
+          "date": "28/11/2023",
+          "time": "14:00"
+        },
+        {
+          "date": "23/10/2023",
+          "time": "15:00"
+        },
+        {
+          "date": "22/09/2023",
+          "time": "16:00"
+        },
+        {
+          "date": "18/08/2023",
+          "time": "16:30"
+        },
+        {
+          "date": "24/07/2023",
+          "time": "17:45"
+        },
+        {
+          "date": "20/06/2023",
+          "time": "15:15"
+        }
+      ],
+      "loyaltyCard": {
+        "totalCuts": 10,
+        "cutsNeeded": 10,
+        "cutsRemaining": 0
       }
     }
   ]

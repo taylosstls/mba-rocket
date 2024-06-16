@@ -1,7 +1,7 @@
 import { apiConfig } from "./api-config";
 
 
-export async function clientInfo({ id }) {
+export default async function ClientInfo({ id }) {
     if (!id) throw new Error('ID is required');
 
     try {

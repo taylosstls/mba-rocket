@@ -22,10 +22,11 @@
         <img src="./src/assets/member-club-logo.png" alt="Logo" />
       </figure>
 
+      <small>DICA: Tente usar 000-000-000-000, 111-111-111-111... </small>
       <form class="search-client">
-        <input type="text" placeholder="ID do cartão" id="client-id" name="client-id" required />
+        <input type="text" placeholder="ID do cartão" id="client-id" name="client-id" maxlength="15" required />
 
-        <button type="button" title="Clique para pesquisar" disabled>
+        <button type="submit" title="Clique para pesquisar" disabled>
           <i class="ph ph-arrow-elbow-down-left"></i>
         </button>
 
@@ -37,84 +38,22 @@
         <div class="container-card profile-area flex items-center gap-1">
           <div class="picture">
             <figure>
-              <img src="src/assets/no-profile-picture-icon.png" alt="Natália Miranda">
+              <img src="src/assets/no-profile-picture-icon.png" alt="Cliente">
             </figure>
           </div>
           <div class="flex flex-column gap-0.25">
-            <h1 class="title-sm text-base-gray-600">Natália Miranda</h1>
-            <p class="text-xs text-base-gray-500">Cliente desde 18/09/2023</p>
+            <h1 class="title-sm text-base-gray-600">Cliente</h1>
+            <p class="text-xs text-base-gray-500">Cliente desde: <span class="client-date"></span></p>
           </div>
         </div>
 
         <div class="container-card cuts-history">
           <header class="flex flex-row gap-0.5 items-center space-between">
             <h4 class="subtitle-sm text-base-gray-500">Histórico</h4>
-            <p class="text-xs text-base-gray-500">0 cortes</p>
+            <p class="client-history text-xs text-base-gray-500">0 cortes</p>
           </header>
 
-          <ul class="history-list flex flex-column gap-1.5">
-
-            <li class="history-item grid">
-              <div class="cut-content">
-                <p class="subtitle-sm text-base-gray-600">29/04/2024</p>
-                <p class="text-xs text-base-gray-500">18:30</p>
-              </div>
-              <div class="check-content flex justify-content-center items-center">
-                <i class="ph ph-seal-check"></i>
-              </div>
-            </li>
-
-            <li class="history-item grid">
-              <div class="cut-content">
-                <p class="subtitle-sm text-base-gray-600">29/04/2024</p>
-                <p class="text-xs text-base-gray-500">18:30</p>
-              </div>
-              <div class="check-content flex justify-content-center items-center">
-                <i class="ph ph-seal-check"></i>
-              </div>
-            </li>
-
-            <li class="history-item grid">
-              <div class="cut-content">
-                <p class="subtitle-sm text-base-gray-600">29/04/2024</p>
-                <p class="text-xs text-base-gray-500">18:30</p>
-              </div>
-              <div class="check-content flex justify-content-center items-center">
-                <i class="ph ph-seal-check"></i>
-              </div>
-            </li>
-
-            <li class="history-item grid">
-              <div class="cut-content">
-                <p class="subtitle-sm text-base-gray-600">29/04/2024</p>
-                <p class="text-xs text-base-gray-500">18:30</p>
-              </div>
-              <div class="check-content flex justify-content-center items-center">
-                <i class="ph ph-seal-check"></i>
-              </div>
-            </li>
-
-            <li class="history-item grid">
-              <div class="cut-content">
-                <p class="subtitle-sm text-base-gray-600">29/04/2024</p>
-                <p class="text-xs text-base-gray-500">18:30</p>
-              </div>
-              <div class="check-content flex justify-content-center items-center">
-                <i class="ph ph-seal-check"></i>
-              </div>
-            </li>
-
-            <li class="history-item grid">
-              <div class="cut-content">
-                <p class="subtitle-sm text-base-gray-600">29/04/2024</p>
-                <p class="text-xs text-base-gray-500">18:30</p>
-              </div>
-              <div class="check-content flex justify-content-center items-center">
-                <i class="ph ph-seal-check"></i>
-              </div>
-            </li>
-
-          </ul>
+          <ul class="history-list flex flex-column gap-1.5"></ul>
         </div>
 
       </aside>
@@ -124,31 +63,21 @@
           <div class="flex items-start gap-0.25 space-between">
             <div class="flex flex-column gap-0.5">
               <h3 class="subtitle-sm text-base-gray-500">Cartão fidelidade</h3>
-              <p class="text-sm text-base-gray-500">Ao fazer cortes de cabelo, o décimo sai de graça!</p>
+              <p class="fidelity-text text-sm text-base-gray-500">Ao fazer cortes de cabelo, o décimo sai de graça!</p>
             </div>
             <h5 class="id-number text-nowrap">ID: <span>124-537-835-230</span></h5>
           </div>
           <div class="grid grid-fidelity gap-1">
-            <div class="fidelity-item">
-              <img src="./src/assets/confirm-icon.png" alt="Verificado" />
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
-            </div>
-            <div class="fidelity-item">
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item"></div>
+            <div class="fidelity-item gift-item">
               <i class="ph-fill ph-gift"></i>
             </div>
           </div>
@@ -165,7 +94,7 @@
                 <div class="progress-bar">
                   <div class="progress"></div>
                 </div>
-                <div class="progress-text text-base-gray-500 text-xs text-nowrap">0 de 10</div>
+                <div class="progress-text text-base-gray-500 text-xs text-nowrap"><span>0</span> de 10</div>
               </div>
             </aside>
 
