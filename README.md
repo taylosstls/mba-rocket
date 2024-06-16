@@ -10,6 +10,14 @@ Bem-vindo ao meu repositório de estudos para a MBA de FullStack! Aqui você enc
 
 [Visão Geral](#visao-geral) | [Módulos](#modulos) | [Tecnologias Envolvidas](#tecnologias-envolvidas) | [Progresso Atual](#progresso-atual) | [Sobre a MBA de FullStack](#sobre-a-mba-de-fullstack) | [Autor](#autor) | [Licença](#licenca)
 
+## 📈 Progresso Atual
+
+- [x] Concluído estudo do Módulo 01
+- [x] Prova técnica e teórica do Módulo 01
+- [ ] Estudo do Módulo 02: 18/06/2024 - 17/08/2024
+- [ ] Previsão de conclusão: 04/2025
+
+
 ## 📚 Módulos
 
 - **01 - Fundamentos do Desenvolvimento Web**
@@ -33,12 +41,6 @@ Bem-vindo ao meu repositório de estudos para a MBA de FullStack! Aqui você enc
 - Git
 - Next.js
 - E mais...
-
-## 📈 Progresso Atual
-
-- [x] Concluído o módulo 01
-- [ ] Aguardando demais módulos serem liberados
-- [ ] Previsão de conclusão: 04/2025
 
 ## 📝 Sobre a MBA de FullStack
 
