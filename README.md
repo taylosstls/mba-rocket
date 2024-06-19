@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/taylosstls/mba-rocket/bab5ced4aa333c1ed1d4c75717fe245a155ff12c/logo.svg" alt="Logo da MBA de FullStack">
+  <img src="./logo.svg" alt="Logo da MBA de FullStack">
 </p>
 
 # MBA de FullStack 🚀
