@@ -174,7 +174,7 @@
   /* saudável static */
   66%,
   88% {
-    transform: translateY(-10rem);
+    transform: translateY(calc(-10rem));
   }
 
   /* radical in */
@@ -191,7 +191,7 @@
     transform: translateY(calc(-15rem + 5px));
   }
   100% {
-    transform: translateY(-15rem);
+    transform: translateY(calc(-15rem));
   }
 }
 
@@ -208,5 +208,15 @@
 @keyframes appear {
   to {
     opacity: 1;
+  }
+}
+
+@media(max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+
+    h1 {
+      font-size: var(--text-lg);
+    }
   }
 }
