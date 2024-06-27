@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.svg" alt="Logo da MBA de FullStack">
+  <img src="./docs/logo.svg" alt="Logo da MBA de FullStack">
 </p>
 
 # MBA de FullStack 🚀
