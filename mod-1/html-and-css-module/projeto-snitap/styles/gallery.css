@@ -111,3 +111,22 @@
     transform: translateY(100%);
   }
 }
+
+@media(max-width: 768px) {
+  .gallery {
+    & h2 {
+      font-size: var(--text-sm);
+    }
+
+    & .content {
+      display: flex;
+      flex-direction: column;
+
+      & figure {
+        &[data-delay] {
+          animation-range: 100px 300px;
+        }
+      }
+    }
+  }
+}

@@ -98,3 +98,16 @@ footer {
     }
   }
 }
+
+@media(max-width: 768px) {
+  footer {
+    padding: 3rem 2rem 2rem;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: flex-start;
+    & nav {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+}
