@@ -14,9 +14,8 @@ Bem-vindo ao meu repositório de estudos para a MBA de FullStack! Aqui você enc
 
 - [x] Concluído estudo do Módulo 01
 - [x] Prova técnica e teórica do Módulo 01
-- [ ] Estudo do Módulo 02: 18/06/2024 - 17/08/2024
+- [ ] Estudo do Módulo 02: 18/06/2024 - 17/08/2024 (on Going)
 - [ ] Previsão de conclusão: 04/2025
-
 
 ## 📚 Módulos
 
