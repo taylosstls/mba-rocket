@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  padding: 72px 32px 80px;
+  
+  background-color: var(--gray-700);
+
+}
+
+.logo {
+  width: 100%;
+  max-width: 126px;
+}
