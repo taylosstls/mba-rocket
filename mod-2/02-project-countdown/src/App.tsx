@@ -11,7 +11,6 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <Navigation />
 
-
       <GlobalStyle />
     </ThemeProvider>
   )
