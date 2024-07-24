@@ -3,6 +3,9 @@ import { defaultTheme } from './styles/themes/default';
 
 import { Button } from "./components/atoms/Button";
 
+import './styles/global'
+import { GlobalStyle } from './styles/global';
+
 export function App() {
 
   return (
@@ -12,6 +15,8 @@ export function App() {
       <Button variant="success" />
       <Button variant="danger" />
       <Button />
+
+      <GlobalStyle />
     </ThemeProvider>
   )
 }
