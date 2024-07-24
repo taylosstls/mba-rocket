@@ -9,7 +9,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -22,7 +22,9 @@ module.exports = {
   plugins: [
     'react',
     'jsx-a11y',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'react-refresh',
+    'prettier'
   ],
   rules: {
     'react/self-closing-comp': 'error',
@@ -33,7 +35,7 @@ module.exports = {
       'trailingComma': 'all',
       'arrowParens': 'always',
       'semi': false,
-      'endOfLine': 'auto',
+      'endOfLine': 'auto'
     }],
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
@@ -49,7 +51,7 @@ module.exports = {
     'jsx-a11y/aria-unsupported-elements': 'warn',
     'jsx-a11y/role-has-required-aria-props': 'warn',
     'jsx-a11y/role-supports-aria-props': 'warn',
-    'react/no-unknown-property': 'error',
+    'react/no-unknown-property': 'error'
   },
   settings: {
     react: {
