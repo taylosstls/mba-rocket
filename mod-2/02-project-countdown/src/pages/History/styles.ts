@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Circle } from "phosphor-react"
+import { Circle } from 'phosphor-react'
 
 export const ContainerHistory = styled.main`
   flex: 1;
@@ -30,7 +30,7 @@ export const HistoryList = styled.div`
 
       text-align: left;
       color: ${(props) => props.theme['gray-100']};
-      font-size: .875rem;
+      font-size: 0.875rem;
       line-height: 1.6;
 
       &:first-child {
@@ -51,10 +51,10 @@ export const HistoryList = styled.div`
       > span {
         display: flex;
         align-items: center;
-        gap: .5rem;
+        gap: 0.5rem;
       }
 
-      font-size: .875rem;
+      font-size: 0.875rem;
       line-height: 1.6;
 
       &:first-child {
@@ -65,22 +65,21 @@ export const HistoryList = styled.div`
       }
     }
   }
-`;
+`
 
 const STATUS_COLORS = {
   yellow: 'yellow-500',
   green: 'green-500',
-  red: 'red-500'
+  red: 'red-500',
 } as const
 
 interface StatusProps {
-  statusColor?: keyof typeof STATUS_COLORS;
+  statusColor?: keyof typeof STATUS_COLORS
 }
 
-export const CircleStatus = styled(Circle) <StatusProps>`
+export const CircleStatus = styled(Circle)<StatusProps>`
   color: ${(props) =>
     props.statusColor && STATUS_COLORS[props.statusColor]
       ? props.theme[STATUS_COLORS[props.statusColor]]
-      : props.theme['gray-500']
-  };
-`;
+      : props.theme['gray-500']};
+`

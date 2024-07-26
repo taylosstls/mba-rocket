@@ -1,4 +1,4 @@
-import { CircleStatus, ContainerHistory, HistoryList } from "./styles";
+import { CircleStatus, ContainerHistory, HistoryList } from './styles'
 
 export function History() {
   return (
@@ -21,14 +21,15 @@ export function History() {
               <td>20 minutos</td>
               <td>Há cerca de 2 meses</td>
               <td>
-                <span><CircleStatus size={12} weight="fill" statusColor="green" /> Concluído</span>
+                <span>
+                  <CircleStatus size={12} weight="fill" statusColor="green" />{' '}
+                  Concluído
+                </span>
               </td>
             </tr>
           </tbody>
-
         </table>
       </HistoryList>
-
     </ContainerHistory>
   )
 }
