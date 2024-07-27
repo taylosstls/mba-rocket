@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
+import { differenceInSeconds } from 'date-fns'
 import { Play } from 'phosphor-react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -35,6 +36,7 @@ interface Cycle {
   id: string
   task: string
   timer: number
+  startDate: Date
 }
 
 export function Home() {
@@ -50,10 +52,20 @@ export function Home() {
     },
   })
 
+  // Retornar o ciclo ativo do Array
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
+
   // Observa os campos de input (useEffect)
   const taskValue = watch('task')
   const isSubmitDisabled = !taskValue
 
+  useEffect(() => {
+    if (activeCycle) {
+      setInterval(() => {
+        setAmountSecondsPassed(differenceInSeconds(new Date(), activeCycle.startDate))
+      }, 1000)
+    }
+  }, [activeCycle])
 
   // Função de criação de um novo ciclo
   function handleCreateNewCycle({ task, timer }: newCycleFormData) {
@@ -61,6 +73,7 @@ export function Home() {
       id: String(new Date().getTime()),
       task,
       timer,
+      startDate: new Date()
     }
 
     setCycles((state) => [...state, newCycle])
@@ -68,9 +81,6 @@ export function Home() {
 
     reset()
   }
-
-  // Retornar o ciclo ativo do Array
-  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
   // Divisão do tempo total do timer, convertido para segundos
   const totalTimerSeconds = activeCycle ? activeCycle.timer * 60 : 0
