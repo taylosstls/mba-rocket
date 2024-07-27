@@ -50,6 +50,12 @@ export function Home() {
     },
   })
 
+  // Observa os campos de input (useEffect)
+  const taskValue = watch('task')
+  const isSubmitDisabled = !taskValue
+
+
+  // Função de criação de um novo ciclo
   function handleCreateNewCycle({ task, timer }: newCycleFormData) {
     const newCycle: Cycle = {
       id: String(new Date().getTime()),
@@ -63,17 +69,26 @@ export function Home() {
     reset()
   }
 
+  // Retornar o ciclo ativo do Array
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
+  // Divisão do tempo total do timer, convertido para segundos
   const totalTimerSeconds = activeCycle ? activeCycle.timer * 60 : 0
+
+  // Tempo do Counter total - tempo atual
   const currentSeconds = activeCycle
     ? totalTimerSeconds - amountSecondsPassed
     : 0
 
-  const minutesAmount = currentSeconds / 60
+  // total de minutos, arredondando sempre para baixo
+  const minutesAmount = Math.floor(currentSeconds / 60)
 
-  const taskValue = watch('task')
-  const isSubmitDisabled = !taskValue
+  // total de segundos, considerando o resto da operação
+  const secondsAmount = currentSeconds % 60
+
+  // Exibição dos minutos, transformados em String
+  const minutes = String(minutesAmount).padStart(2, '0')
+  const seconds = String(secondsAmount).padStart(2, '0')
 
   return (
     <ContainerHome>
@@ -109,11 +124,11 @@ export function Home() {
         </FormContainer>
 
         <CountdownContainer>
-          <span>0</span>
-          <span>0</span>
+          <span>{minutes[0]}</span>
+          <span>{minutes[1]}</span>
           <Separator>:</Separator>
-          <span>0</span>
-          <span>0</span>
+          <span>{seconds[0]}</span>
+          <span>{seconds[1]}</span>
         </CountdownContainer>
 
         <StartCountdownButton type="submit" disabled={isSubmitDisabled}>
