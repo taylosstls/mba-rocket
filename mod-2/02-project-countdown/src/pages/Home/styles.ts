@@ -120,9 +120,9 @@ export const BaseCountdownButton = styled.button`
     opacity: 0.7;
     cursor: not-allowed;
   }
-`;
+`
 
-export const StartCountdownButton = styled(BaseCountdownButton)`  
+export const StartCountdownButton = styled(BaseCountdownButton)`
   background-color: ${(props) => props.theme['green-500']};
 
   &:not(:disabled):hover {

@@ -65,34 +65,35 @@ export function Home() {
   // Divisão do tempo total do timer, convertido para segundos
   const totalTimerSeconds = activeCycle ? activeCycle.timer * 60 : 0
 
-
   useEffect(() => {
-    let countdown: number;
+    let countdown: number
 
     if (activeCycle) {
       countdown = setInterval(() => {
-        const secondsDifference = differenceInSeconds(new Date(), activeCycle.startDate)
+        const secondsDifference = differenceInSeconds(
+          new Date(),
+          activeCycle.startDate,
+        )
 
         if (secondsDifference >= totalTimerSeconds) {
-          // Anota a data que o ciclo foi concluído
-          setCycles(
-            state => state.map(cycle => {
+          // Anota a data e hora que o ciclo foi concluído
+          setCycles((state) =>
+            state.map((cycle) => {
               if (cycle.id === activeCycleId) {
                 return { ...cycle, finishedDate: new Date() }
               } else {
                 return cycle
               }
-            })
+            }),
           )
 
-          // Zera o timer
+          // Quando terminar o countdown, mostrará 00:00
           setAmountSecondsPassed(totalTimerSeconds)
 
           clearInterval(countdown)
         } else {
           setAmountSecondsPassed(secondsDifference)
         }
-
       }, 1000)
     }
 
@@ -107,7 +108,7 @@ export function Home() {
       id: String(new Date().getTime()),
       task,
       timer,
-      startDate: new Date()
+      startDate: new Date(),
     }
 
     setCycles((state) => [...state, newCycle])
@@ -119,15 +120,15 @@ export function Home() {
 
   // Função de parar ciclo
   function handleInterruptCycle() {
-    // Anota a data que o ciclo foi interrompido
-    setCycles(
-      (state) => state.map(cycle => {
+    // Anota a data e hora que o ciclo foi interrompido
+    setCycles((state) =>
+      state.map((cycle) => {
         if (cycle.id === activeCycleId) {
           return { ...cycle, interruptedDate: new Date() }
         } else {
           return cycle
         }
-      })
+      }),
     )
 
     // Defina para que não tenha mais nenhum ciclo ativo
