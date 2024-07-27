@@ -39,6 +39,7 @@ interface Cycle {
   timer: number
   startDate: Date
   interruptedDate?: Date
+  finishedDate?: Date
 }
 
 export function Home() {
@@ -54,26 +55,51 @@ export function Home() {
     },
   })
 
-  // Retornar o ciclo ativo do Array
-  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
-
   // Observa os campos de input (useEffect)
   const taskValue = watch('task')
   const isSubmitDisabled = !taskValue
+
+  // Retornar o ciclo ativo do Array
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
+
+  // Divisão do tempo total do timer, convertido para segundos
+  const totalTimerSeconds = activeCycle ? activeCycle.timer * 60 : 0
+
 
   useEffect(() => {
     let countdown: number;
 
     if (activeCycle) {
       countdown = setInterval(() => {
-        setAmountSecondsPassed(differenceInSeconds(new Date(), activeCycle.startDate))
+        const secondsDifference = differenceInSeconds(new Date(), activeCycle.startDate)
+
+        if (secondsDifference >= totalTimerSeconds) {
+          // Anota a data que o ciclo foi concluído
+          setCycles(
+            state => state.map(cycle => {
+              if (cycle.id === activeCycleId) {
+                return { ...cycle, finishedDate: new Date() }
+              } else {
+                return cycle
+              }
+            })
+          )
+
+          // Zera o timer
+          setAmountSecondsPassed(totalTimerSeconds)
+
+          clearInterval(countdown)
+        } else {
+          setAmountSecondsPassed(secondsDifference)
+        }
+
       }, 1000)
     }
 
     return () => {
       clearInterval(countdown)
     }
-  }, [activeCycle])
+  }, [activeCycle, totalTimerSeconds, activeCycleId])
 
   // Função de criação de um novo ciclo
   function handleCreateNewCycle({ task, timer }: newCycleFormData) {
@@ -95,7 +121,7 @@ export function Home() {
   function handleInterruptCycle() {
     // Anota a data que o ciclo foi interrompido
     setCycles(
-      cycles.map(cycle => {
+      (state) => state.map(cycle => {
         if (cycle.id === activeCycleId) {
           return { ...cycle, interruptedDate: new Date() }
         } else {
@@ -107,9 +133,6 @@ export function Home() {
     // Defina para que não tenha mais nenhum ciclo ativo
     setActiveCycleId(null)
   }
-
-  // Divisão do tempo total do timer, convertido para segundos
-  const totalTimerSeconds = activeCycle ? activeCycle.timer * 60 : 0
 
   // Tempo do Counter total - tempo atual
   const currentSeconds = activeCycle
