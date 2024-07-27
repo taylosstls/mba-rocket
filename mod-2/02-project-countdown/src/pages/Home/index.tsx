@@ -60,10 +60,16 @@ export function Home() {
   const isSubmitDisabled = !taskValue
 
   useEffect(() => {
+    let countdown: number;
+
     if (activeCycle) {
-      setInterval(() => {
+      countdown = setInterval(() => {
         setAmountSecondsPassed(differenceInSeconds(new Date(), activeCycle.startDate))
       }, 1000)
+    }
+
+    return () => {
+      clearInterval(countdown)
     }
   }, [activeCycle])
 
@@ -78,6 +84,7 @@ export function Home() {
 
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(newCycle.id)
+    setAmountSecondsPassed(0)
 
     reset()
   }
@@ -99,6 +106,12 @@ export function Home() {
   // Exibição dos minutos, transformados em String
   const minutes = String(minutesAmount).padStart(2, '0')
   const seconds = String(secondsAmount).padStart(2, '0')
+
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `${minutes}:${seconds}`
+    }
+  }, [minutes, seconds, activeCycle])
 
   return (
     <ContainerHome>

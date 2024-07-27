@@ -74,12 +74,12 @@ const STATUS_COLORS = {
 } as const
 
 interface StatusProps {
-  statusColor?: keyof typeof STATUS_COLORS
+  $statusColor?: keyof typeof STATUS_COLORS
 }
 
-export const CircleStatus = styled(Circle)<StatusProps>`
+export const CircleStatus = styled(Circle) <StatusProps>`
   color: ${(props) =>
-    props.statusColor && STATUS_COLORS[props.statusColor]
-      ? props.theme[STATUS_COLORS[props.statusColor]]
+    props.$statusColor && STATUS_COLORS[props.$statusColor]
+      ? props.theme[STATUS_COLORS[props.$statusColor]]
       : props.theme['gray-500']};
 `

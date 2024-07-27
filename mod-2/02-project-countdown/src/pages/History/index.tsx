@@ -22,7 +22,7 @@ export function History() {
               <td>Há cerca de 2 meses</td>
               <td>
                 <span>
-                  <CircleStatus size={12} weight="fill" statusColor="green" />{' '}
+                  <CircleStatus size={12} weight="fill" $statusColor="green" />{' '}
                   Concluído
                 </span>
               </td>
