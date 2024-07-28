@@ -65,5 +65,5 @@ export const ErrorMessage = styled.span`
   color: ${(props) => props.theme['red-500']};
   font-size: 1rem;
   font-weight: 400;
-  text-wrap: nowrap;
+  white-space: nowrap;
 `
