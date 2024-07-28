@@ -8,10 +8,12 @@ import { Navigation } from './navigation'
 
 export function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Navigation />
+    <>
+      <ThemeProvider theme={defaultTheme}>
+        <Navigation />
 
-      <GlobalStyle />
-    </ThemeProvider>
+        <GlobalStyle />
+      </ThemeProvider>
+    </>
   )
 }
