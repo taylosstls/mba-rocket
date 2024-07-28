@@ -12,6 +12,10 @@ export const FormContainer = styled.div`
   color: ${(props) => props.theme['gray-100']};
   font-size: 1.125rem;
   font-weight: 700;
+
+  label {
+    position: relative;
+  }
 `
 
 const BaseInput = styled.input`
@@ -50,4 +54,16 @@ export const TaskInput = styled(BaseInput)`
 
 export const TimerInput = styled(BaseInput)`
   width: 4rem;
+`
+
+export const ErrorMessage = styled.span`
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 16px;
+
+  color: ${(props) => props.theme['red-500']};
+  font-size: 1rem;
+  font-weight: 400;
+  text-wrap: nowrap;
 `

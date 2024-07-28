@@ -1,7 +1,6 @@
 import { createContext, useState } from 'react'
 
 import { FormProvider, useForm } from 'react-hook-form'
-import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { ContainerHome } from './styles'
@@ -13,21 +12,10 @@ import { Countdown } from '../../components/molecules/Countdown'
 
 import { Cycle, CyclesContextType } from '../../interface/Cycle'
 
-const newCycleFormValidationSchema = z.object({
-  task: z.string().min(1, {
-    message: 'Informe a tarefa.',
-  }),
-  timer: z
-    .number()
-    .min(5, {
-      message: 'Seu Timer precisa ser de pelo menos 5 minutos.',
-    })
-    .max(60, {
-      message: 'Seu Timer pode ser de até 60 minutos.',
-    }),
-})
-
-type newCycleFormData = z.infer<typeof newCycleFormValidationSchema>
+import {
+  NewCycleFormData,
+  newCycleFormValidationSchema,
+} from '../../utils/validations/validationSchema'
 
 export const CyclesContext = createContext({} as CyclesContextType)
 
@@ -37,7 +25,7 @@ export function Home() {
 
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
 
-  const newCycleForm = useForm<newCycleFormData>({
+  const newCycleForm = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
     defaultValues: {
       task: '',
@@ -71,7 +59,7 @@ export function Home() {
   }
 
   // Função de criação de um novo ciclo
-  function handleCreateNewCycle({ task, timer }: newCycleFormData) {
+  function handleCreateNewCycle({ task, timer }: NewCycleFormData) {
     const newCycle: Cycle = {
       id: String(new Date().getTime()),
       task,

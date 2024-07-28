@@ -1,25 +1,31 @@
 import { useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
-
-import { FormContainer, TaskInput, TimerInput } from './styles'
-
 import { CyclesContext } from '../../../pages/Home'
+import { ErrorMessage, FormContainer, TaskInput, TimerInput } from './styles'
 
 export function NewCycleForm() {
   const { activeCycle } = useContext(CyclesContext)
-  const { register } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
 
   return (
     <FormContainer>
-      <label htmlFor="task">Vou trabalhar em</label>
-      <TaskInput
-        id="task"
-        type="text"
-        placeholder="Dê um nome para o seu projeto"
-        list="task-suggestions"
-        {...register('task')}
-        disabled={!!activeCycle}
-      />
+      <label htmlFor="task">
+        Vou trabalhar em
+        <TaskInput
+          id="task"
+          type="text"
+          placeholder="Dê um nome para o seu projeto"
+          list="task-suggestions"
+          {...register('task')}
+          disabled={!!activeCycle}
+        />
+        {errors.task && (
+          <ErrorMessage>{errors.task.message as string}</ErrorMessage>
+        )}
+      </label>
 
       <datalist id="task-suggestions">
         <option value="Projeto 1" />
@@ -27,15 +33,20 @@ export function NewCycleForm() {
         <option value="Projeto 3" />
       </datalist>
 
-      <label htmlFor="timer">durante</label>
-      <TimerInput
-        id="timer"
-        type="number"
-        step={5}
-        placeholder="00"
-        disabled={!!activeCycle}
-        {...register('timer', { valueAsNumber: true })}
-      />
+      <label htmlFor="timer">
+        durante
+        <TimerInput
+          id="timer"
+          type="number"
+          step={5}
+          placeholder="00"
+          disabled={!!activeCycle}
+          {...register('timer', { valueAsNumber: true })}
+        />
+        {errors.timer && (
+          <ErrorMessage>{errors.timer.message as string}</ErrorMessage>
+        )}
+      </label>
 
       <span>minutos.</span>
     </FormContainer>
