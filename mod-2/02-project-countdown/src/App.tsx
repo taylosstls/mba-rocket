@@ -6,11 +6,15 @@ import { GlobalStyle } from './styles/global'
 
 import { Navigation } from './navigation'
 
+import { CyclesContextProvider } from './contexts/CyclesContext'
+
 export function App() {
   return (
     <>
       <ThemeProvider theme={defaultTheme}>
-        <Navigation />
+        <CyclesContextProvider>
+          <Navigation />
+        </CyclesContextProvider>
 
         <GlobalStyle />
       </ThemeProvider>

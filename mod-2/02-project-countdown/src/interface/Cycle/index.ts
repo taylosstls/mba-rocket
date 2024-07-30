@@ -7,6 +7,11 @@ export interface Cycle {
   finishedDate?: Date
 }
 
+export interface CreateCycleData {
+  task: string
+  timer: number
+}
+
 export interface CyclesContextType {
   activeCycle: Cycle | undefined
   activeCycleId: string | null
@@ -14,4 +19,7 @@ export interface CyclesContextType {
 
   amountSecondsPassed: number
   setSecondsPassed: (seconds: number) => void
+
+  createNewCycle: (data: CreateCycleData) => void
+  interruptCurrentCycle: () => void
 }
