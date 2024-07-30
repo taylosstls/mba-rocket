@@ -52,8 +52,6 @@ export function CyclesContextProvider({
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(newCycle.id)
     setSecondsPassed(0)
-
-    // reset()
   }
 
   // Função de parar ciclo
@@ -76,6 +74,7 @@ export function CyclesContextProvider({
   return (
     <CyclesContext.Provider
       value={{
+        cycles,
         activeCycle,
         activeCycleId,
         markCurrentCycleAsFinished,

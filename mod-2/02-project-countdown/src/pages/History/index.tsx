@@ -1,6 +1,13 @@
+import { useContext } from 'react'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+
 import { CircleStatus, ContainerHistory, HistoryList } from './styles'
 
+import { CyclesContext } from '../../contexts/CyclesContext'
+
 export function History() {
+  const { cycles } = useContext(CyclesContext)
   return (
     <ContainerHistory>
       <h1>History</h1>
@@ -16,17 +23,58 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Tarefa</td>
-              <td>20 minutos</td>
-              <td>Há cerca de 2 meses</td>
-              <td>
-                <span>
-                  <CircleStatus size={12} weight="fill" $statusColor="green" />{' '}
-                  Concluído
-                </span>
-              </td>
-            </tr>
+            {cycles.map((cycle) => {
+              const formattedDistance = formatDistanceToNow(cycle.startDate, {
+                addSuffix: true,
+                locale: ptBR,
+              })
+              return (
+                <tr key={cycle.id}>
+                  <td>{cycle.task}</td>
+                  <td>{cycle.timer} minutos</td>
+                  <td>
+                    {formattedDistance.charAt(0).toUpperCase() +
+                      formattedDistance.slice(1)}
+                  </td>
+                  <td>
+                    <span>
+                      {cycle.finishedDate && (
+                        <>
+                          <CircleStatus
+                            size={12}
+                            weight="fill"
+                            $statusColor="green"
+                          />{' '}
+                          Concluído
+                        </>
+                      )}
+
+                      {cycle.interruptedDate && (
+                        <>
+                          <CircleStatus
+                            size={12}
+                            weight="fill"
+                            $statusColor="red"
+                          />{' '}
+                          Interrompido
+                        </>
+                      )}
+
+                      {!cycle.finishedDate && !cycle.interruptedDate && (
+                        <>
+                          <CircleStatus
+                            size={12}
+                            weight="fill"
+                            $statusColor="yellow"
+                          />{' '}
+                          Em andamento
+                        </>
+                      )}
+                    </span>
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </HistoryList>

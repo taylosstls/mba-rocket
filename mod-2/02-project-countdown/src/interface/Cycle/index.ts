@@ -13,6 +13,7 @@ export interface CreateCycleData {
 }
 
 export interface CyclesContextType {
+  cycles: Cycle[]
   activeCycle: Cycle | undefined
   activeCycleId: string | null
   markCurrentCycleAsFinished: () => void
