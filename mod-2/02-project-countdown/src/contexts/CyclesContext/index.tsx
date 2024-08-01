@@ -1,10 +1,13 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useReducer, useState } from 'react'
 
 import {
   CreateCycleData,
   Cycle,
   CyclesContextType,
 } from '../../interface/Cycle'
+
+import { cyclesReducer } from '../../reducers/cycles/reducer'
+import { addNewCycleAction, interruptCurrentCycleAction, markCurrentCycleAsFinishedAction } from '../../reducers/cycles/actions'
 
 export const CyclesContext = createContext({} as CyclesContextType)
 
@@ -15,26 +18,18 @@ interface CyclesContextProviderProps {
 export function CyclesContextProvider({
   children,
 }: CyclesContextProviderProps) {
-  const [cycles, setCycles] = useState<Cycle[]>([])
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
 
-  const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
+  const [cyclesState, dispatch] = useReducer(cyclesReducer,
+    {
+      cycles: [],
+      activeCycleId: null,
+    })
+
+  const { cycles, activeCycleId } = cyclesState;
 
   // Retornar o ciclo ativo do Array
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
-
-  // Anota a data e hora que o ciclo foi concluído
-  function markCurrentCycleAsFinished() {
-    setCycles((state) =>
-      state.map((cycle) => {
-        if (cycle.id === activeCycleId) {
-          return { ...cycle, finishedDate: new Date() }
-        } else {
-          return cycle
-        }
-      }),
-    )
-  }
 
   function setSecondsPassed(seconds: number) {
     setAmountSecondsPassed(seconds)
@@ -49,26 +44,19 @@ export function CyclesContextProvider({
       startDate: new Date(),
     }
 
-    setCycles((state) => [...state, newCycle])
-    setActiveCycleId(newCycle.id)
+    dispatch(addNewCycleAction(newCycle))
+
     setSecondsPassed(0)
   }
 
-  // Função de parar ciclo
+  // Função de parar o ciclo atual
   function interruptCurrentCycle() {
-    // Anota a data e hora que o ciclo foi interrompido
-    setCycles((state) =>
-      state.map((cycle) => {
-        if (cycle.id === activeCycleId) {
-          return { ...cycle, interruptedDate: new Date() }
-        } else {
-          return cycle
-        }
-      }),
-    )
+    dispatch(interruptCurrentCycleAction())
+  }
 
-    // Defina para que não tenha mais nenhum ciclo ativo
-    setActiveCycleId(null)
+  // Função de conclusão de ciclo
+  function markCurrentCycleAsFinished() {
+    dispatch(markCurrentCycleAsFinishedAction())
   }
 
   return (
