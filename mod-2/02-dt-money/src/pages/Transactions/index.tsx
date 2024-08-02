@@ -1,35 +1,35 @@
-import { SummaryCard } from "../../components/molecules/SummaryCard";
+import { PriceHighlight, TransactionsContainer, TransactionsTable } from "./styles";
+
 import { Header } from "../../components/organisms/Header";
 import { Summary } from "../../components/organisms/Summary";
-import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react'; // Importando os ícones
+import { SearchForm } from "../../components/molecules/SearchForm";
 
 export function Transactions() {
-  // Valores dinâmicos para os exemplos
-  const entradas = "R$ 17.400,00";
-  const saidas = "R$ 1.259,00";
-  const total = "R$ 16.141,00";
-
   return (
     <div>
       <Header />
-      <Summary>
-        <SummaryCard
-          title="Entradas"
-          icon={<ArrowCircleUp size={32} color="#00b376" />}
-          amount={entradas}
-        />
-        <SummaryCard
-          title="Saídas"
-          icon={<ArrowCircleDown size={32} color="#f75a68" />}
-          amount={saidas}
-        />
-        <SummaryCard
-          title="Total"
-          icon={<CurrencyDollar size={32} color="#fff" />}
-          amount={total}
-          variant="green"
-        />
-      </Summary>
+      <Summary />
+
+      <TransactionsContainer>
+        <SearchForm />
+        <TransactionsTable>
+          <tbody>
+            <tr>
+              <td>Desenvolvimento de site</td>
+              <td><PriceHighlight variant="income">R$ 12.000,00</PriceHighlight></td>
+              <td>Venda</td>
+              <td>13/04/2024</td>
+            </tr>
+
+            <tr>
+              <td>Hamburguer</td>
+              <td><PriceHighlight variant="outcome">- R$ 12.000,00</PriceHighlight></td>
+              <td>Alimentação</td>
+              <td>10/04/2024</td>
+            </tr>
+          </tbody>
+        </TransactionsTable>
+      </TransactionsContainer>
     </div>
   )
 }
