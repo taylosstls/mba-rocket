@@ -1,14 +1,18 @@
 import { MagnifyingGlass } from "phosphor-react";
 import { SearchFormContainer } from "./styles";
 
+import { Button } from "../../atoms/Button";
+import { Input } from "../../atoms/Input";
+
 export function SearchForm() {
   return (
     <SearchFormContainer onSubmit={() => { }}>
-      <input type="text" placeholder="Busque por transações" />
-      <button type="submit">
+      <Input type="text" placeholder="Busque por transações" />
+
+      <Button className="transparent" type="submit">
         <MagnifyingGlass size={20} />
         Buscar
-      </button>
+      </Button>
     </SearchFormContainer>
   )
 }

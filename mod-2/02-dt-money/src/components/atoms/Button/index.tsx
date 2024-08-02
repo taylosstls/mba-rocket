@@ -1,14 +1,15 @@
 import { ReactNode, ComponentProps } from "react";
-import { NewTransactionButton } from "./styles";
+import { StyledButton } from "./styles";
 
 interface ButtonProps extends ComponentProps<'button'> {
-  children: ReactNode
+  children: ReactNode;
+  className?: 'primary' | 'transparent';
 }
 
-export function Button({ children, ...props }: ButtonProps) {
+export function Button({ children, className = 'primary', ...props }: ButtonProps) {
   return (
-    <NewTransactionButton {...props}>
+    <StyledButton className={className} {...props}>
       {children}
-    </NewTransactionButton>
-  )
+    </StyledButton>
+  );
 }
