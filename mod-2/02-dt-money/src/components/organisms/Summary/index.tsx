@@ -1,32 +1,37 @@
-import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react';
+import { useContext } from "react";
+import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from "phosphor-react";
 
 import { SummaryContainer } from "./styles";
-import { SummaryCard } from '../../molecules/SummaryCard';
+
+import { SummaryCard } from "../../molecules/SummaryCard";
+
+import { TransactionContext } from "../../../contexts/TransactionsContext";
+
+import { calculateSummary } from "../../../utils/calculateSummary";
 
 export function Summary() {
-  // Valores dinâmicos para os exemplos
-  const entradas = "R$ 17.400,00";
-  const saidas = "R$ 1.259,00";
-  const total = "R$ 16.141,00";
+  const { transactions } = useContext(TransactionContext);
+
+  const summary = calculateSummary(transactions);
 
   return (
     <SummaryContainer>
       <SummaryCard
         title="Entradas"
         icon={<ArrowCircleUp size={32} color="#00b376" />}
-        amount={entradas}
+        amount={summary.entradas}
       />
       <SummaryCard
         title="Saídas"
         icon={<ArrowCircleDown size={32} color="#f75a68" />}
-        amount={saidas}
+        amount={summary.saidas}
       />
       <SummaryCard
         title="Total"
         icon={<CurrencyDollar size={32} color="#fff" />}
-        amount={total}
+        amount={summary.total}
         variant="green"
       />
     </SummaryContainer>
-  )
+  );
 }

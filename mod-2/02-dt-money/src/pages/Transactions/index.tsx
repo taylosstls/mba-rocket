@@ -1,10 +1,21 @@
-import { PriceHighlight, TransactionsContainer, TransactionsTable } from "./styles";
+import { useContext } from "react";
+
+import {
+  PriceHighlight,
+  TransactionsContainer,
+  TransactionsTable,
+} from "./styles";
+
+import { SearchForm } from "../../components/molecules/SearchForm";
 
 import { Header } from "../../components/organisms/Header";
 import { Summary } from "../../components/organisms/Summary";
-import { SearchForm } from "../../components/molecules/SearchForm";
+
+import { TransactionContext } from "../../contexts/TransactionsContext";
 
 export function Transactions() {
+  const { transactions } = useContext(TransactionContext);
+
   return (
     <div>
       <Header />
@@ -14,22 +25,29 @@ export function Transactions() {
         <SearchForm />
         <TransactionsTable>
           <tbody>
-            <tr>
-              <td>Desenvolvimento de site</td>
-              <td><PriceHighlight variant="income">R$ 12.000,00</PriceHighlight></td>
-              <td>Venda</td>
-              <td>13/04/2024</td>
-            </tr>
+            {transactions.map((transaction) => {
+              const formattedPrice = transaction.price.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              });
 
-            <tr>
-              <td>Hamburguer</td>
-              <td><PriceHighlight variant="outcome">- R$ 12.000,00</PriceHighlight></td>
-              <td>Alimentação</td>
-              <td>10/04/2024</td>
-            </tr>
+              const createdAtDate = new Date(transaction.createdAt);
+              return (
+                <tr key={transaction.id}>
+                  <td>{transaction.description}</td>
+                  <td>
+                    <PriceHighlight variant={transaction.type}>
+                      {transaction.type === "outcome" && "-"} {formattedPrice}
+                    </PriceHighlight>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>{createdAtDate.toLocaleDateString()}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </TransactionsTable>
       </TransactionsContainer>
     </div>
-  )
+  );
 }
