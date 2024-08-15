@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { SpinnerGap } from "phosphor-react";
+
 import * as Dialog from '@radix-ui/react-dialog';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 
@@ -93,4 +95,17 @@ export const TransactionTypeButton = styled(RadioGroup.Item) <TransactionTypeBut
     }
   }
 
-`; 
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Spinner = styled(SpinnerGap)`
+  animation: ${spin} 1s linear infinite;
+`;
