@@ -7,29 +7,29 @@ import { SummaryCard } from "../../molecules/SummaryCard";
 
 import { TransactionContext } from "../../../contexts/TransactionsContext";
 
-import { calculateSummary } from "../../../utils/calculateSummary";
+import { useSummary } from "../../../hooks/useSummary";
 
 export function Summary() {
   const { transactions } = useContext(TransactionContext);
 
-  const summary = calculateSummary(transactions);
+  const { income, outcome, total } = useSummary(transactions);
 
   return (
     <SummaryContainer>
       <SummaryCard
         title="Entradas"
         icon={<ArrowCircleUp size={32} color="#00b376" />}
-        amount={summary.income}
+        amount={income}
       />
       <SummaryCard
         title="Saídas"
         icon={<ArrowCircleDown size={32} color="#f75a68" />}
-        amount={summary.outcome}
+        amount={outcome}
       />
       <SummaryCard
         title="Total"
         icon={<CurrencyDollar size={32} color="#fff" />}
-        amount={summary.total}
+        amount={total}
         variant="green"
       />
     </SummaryContainer>

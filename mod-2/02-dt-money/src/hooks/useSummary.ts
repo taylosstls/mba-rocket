@@ -1,8 +1,8 @@
-import { formatCurrency } from "./formatter";
+import { formatCurrency } from "../utils/formatter";
 
 import { Transaction } from "../contexts/TransactionsContext";
 
-export const calculateSummary = (transactions: Transaction[]) => {
+export function useSummary(transactions: Transaction[]) {
   const { income, outcome, total } = transactions.reduce(
     (acc, transaction) => {
       if (transaction.type === "income") {
