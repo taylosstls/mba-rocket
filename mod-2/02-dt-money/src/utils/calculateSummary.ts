@@ -1,30 +1,28 @@
+import { formatCurrency } from "./formatter";
+
 import { Transaction } from "../contexts/TransactionsContext";
 
 export const calculateSummary = (transactions: Transaction[]) => {
-  const { entradas, saidas, total } = transactions.reduce(
+  const { income, outcome, total } = transactions.reduce(
     (acc, transaction) => {
       if (transaction.type === "income") {
-        acc.entradas += transaction.price;
+        acc.income += transaction.price;
       } else if (transaction.type === "outcome") {
-        acc.saidas += transaction.price;
+        acc.outcome += transaction.price;
       }
-      acc.total = acc.entradas - acc.saidas;
+      acc.total = acc.income - acc.outcome;
       return acc;
     },
     {
-      entradas: 0,
-      saidas: 0,
+      income: 0,
+      outcome: 0,
       total: 0,
     }
   );
 
-  // Formatar valores em Real (BRL)
-  const formatCurrency = (value: number) =>
-    value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-
   return {
-    entradas: formatCurrency(entradas),
-    saidas: formatCurrency(saidas),
+    income: formatCurrency(income),
+    outcome: formatCurrency(outcome),
     total: formatCurrency(total),
   };
 };

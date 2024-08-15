@@ -19,12 +19,12 @@ export function Summary() {
       <SummaryCard
         title="Entradas"
         icon={<ArrowCircleUp size={32} color="#00b376" />}
-        amount={summary.entradas}
+        amount={summary.income}
       />
       <SummaryCard
         title="Saídas"
         icon={<ArrowCircleDown size={32} color="#f75a68" />}
-        amount={summary.saidas}
+        amount={summary.outcome}
       />
       <SummaryCard
         title="Total"
