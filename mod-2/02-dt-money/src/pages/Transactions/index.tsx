@@ -11,11 +11,11 @@ import { SearchForm } from "../../components/molecules/SearchForm";
 import { Header } from "../../components/organisms/Header";
 import { Summary } from "../../components/organisms/Summary";
 
-import { TransactionContext } from "../../contexts/TransactionsContext";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 import { formatCurrency, formatDate } from "../../utils/formatter";
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionContext);
+  const { transactions } = useContext(TransactionsContext);
 
   return (
     <div>

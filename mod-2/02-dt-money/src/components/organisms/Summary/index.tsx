@@ -5,12 +5,12 @@ import { SummaryContainer } from "./styles";
 
 import { SummaryCard } from "../../molecules/SummaryCard";
 
-import { TransactionContext } from "../../../contexts/TransactionsContext";
+import { TransactionsContext } from "../../../contexts/TransactionsContext";
 
 import { useSummary } from "../../../hooks/useSummary";
 
 export function Summary() {
-  const { transactions } = useContext(TransactionContext);
+  const { transactions } = useContext(TransactionsContext);
 
   const { income, outcome, total } = useSummary(transactions);
 

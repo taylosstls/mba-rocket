@@ -1,4 +1,4 @@
-import { ReactNode, ComponentProps } from "react";
+import { ReactNode, ComponentProps, forwardRef } from "react";
 import { StyledButton } from "./styles";
 
 interface ButtonProps extends ComponentProps<"button"> {
@@ -6,14 +6,12 @@ interface ButtonProps extends ComponentProps<"button"> {
   className?: "primary" | "transparent";
 }
 
-export function Button({
-  children,
-  className = "primary",
-  ...props
-}: ButtonProps) {
-  return (
-    <StyledButton className={className} {...props}>
-      {children}
-    </StyledButton>
-  );
-}
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, className = 'primary', ...props }, ref) => {
+    return (
+      <StyledButton className={className} {...props} ref={ref}>
+        {children}
+      </StyledButton>
+    );
+  }
+);
