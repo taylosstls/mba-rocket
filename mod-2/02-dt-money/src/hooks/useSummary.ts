@@ -25,4 +25,4 @@ export function useSummary(transactions: Transaction[]) {
     outcome: formatCurrency(outcome),
     total: formatCurrency(total),
   };
-};
+}

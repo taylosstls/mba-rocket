@@ -1,4 +1,7 @@
+import { useContext } from 'react';
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react';
+import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as z from 'zod';
 
@@ -6,8 +9,7 @@ import { CloseButton, Content, Overlay, Spinner, TransactionType, TransactionTyp
 
 import { Input } from '../../atoms/Input';
 import { Button } from '../../atoms/Button';
-import { Controller, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { TransactionsContext } from '../../../contexts/TransactionsContext';
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -18,18 +20,36 @@ const newTransactionFormSchema = z.object({
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
-export function NewTransactionModal() {
+interface NewTransactionModalProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export function NewTransactionModal({ setIsOpen }: NewTransactionModalProps) {
+  const { createTransaction } = useContext(TransactionsContext)
+
   const {
     control,
     register,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
+    reset
   } = useForm<NewTransactionFormInputs>({
-    resolver: zodResolver(newTransactionFormSchema)
+    resolver: zodResolver(newTransactionFormSchema),
+    defaultValues: {
+      type: '' as 'income' | 'outcome'
+    }
   })
 
   async function handleSearchTransactions(data: NewTransactionFormInputs) {
-    console.log(data)
+    await createTransaction(data)
+    reset({
+      description: '',
+      price: 0,
+      category: '',
+      type: '' as 'income' | 'outcome'
+    });
+
+    setIsOpen(false);
   }
 
   return (

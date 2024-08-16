@@ -23,6 +23,54 @@
       "category": "Educação",
       "price": 5800,
       "createdAt": "2024-08-11T09:05:36.054Z"
+    },
+    {
+      "description": "Hopi Hari",
+      "category": "Lazer",
+      "price": 100,
+      "type": "outcome",
+      "createdAt": "2024-08-16T19:49:03.199Z",
+      "id": 4
+    },
+    {
+      "description": "Pagamento Edu",
+      "category": "Projetos",
+      "price": 1000,
+      "type": "income",
+      "createdAt": "2024-08-16T19:54:18.779Z",
+      "id": 5
+    },
+    {
+      "description": "Pagamento de Internet + Telefone",
+      "category": "Contas",
+      "price": 200,
+      "type": "outcome",
+      "createdAt": "2024-08-16T19:55:30.282Z",
+      "id": 6
+    },
+    {
+      "description": "Consulta médica",
+      "category": "Saúde",
+      "price": 150,
+      "type": "outcome",
+      "createdAt": "2024-08-16T20:14:10.968Z",
+      "id": 7
+    },
+    {
+      "description": "Pizza",
+      "category": "Alimentação",
+      "price": 80,
+      "type": "outcome",
+      "createdAt": "2024-08-16T20:15:52.261Z",
+      "id": 8
+    },
+    {
+      "description": "Pagamento Letícia",
+      "category": "Programa",
+      "price": 100,
+      "type": "outcome",
+      "createdAt": "2024-08-16T20:35:18.937Z",
+      "id": 9
     }
   ]
 }
