@@ -13,9 +13,11 @@ import { Summary } from "../../components/organisms/Summary";
 
 import { TransactionsContext } from "../../contexts/TransactionsContext";
 import { formatCurrency, formatDate } from "../../utils/formatter";
+import { Trash } from "phosphor-react";
+import { Button } from "../../components/atoms/Button";
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions, deleteTransaction } = useContext(TransactionsContext);
 
   return (
     <div>
@@ -37,6 +39,9 @@ export function Transactions() {
                   </td>
                   <td>{transaction.category}</td>
                   <td>{formatDate(transaction.createdAt)}</td>
+                  <td><Button className="transparent" onClick={() => deleteTransaction(transaction.id)}>
+                    <Trash size={20} />
+                  </Button></td>
                 </tr>
               );
             })}

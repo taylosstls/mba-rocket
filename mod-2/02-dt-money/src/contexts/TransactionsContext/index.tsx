@@ -18,6 +18,7 @@ interface TransactionsContextType {
   transactions: Transaction[];
   fetchTransactions: (query?: string) => Promise<void>;
   createTransaction: (data: CreateTransactionInput) => Promise<void>;
+  deleteTransaction: (id: number) => Promise<void>;
 }
 
 export const TransactionsContext = createContext({} as TransactionsContextType);
@@ -57,6 +58,13 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     setTransactions((state) => [response.data, ...state]);
   }
 
+  async function deleteTransaction(id: number) {
+    await api.delete(`transactions/${id}`)
+
+    // Faz o filtro e remove a transação da lista
+    setTransactions((state) => state.filter(transaction => transaction.id !== id));
+  }
+
   useEffect(() => {
     fetchTransactions();
   }, []);
@@ -65,7 +73,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     <TransactionsContext.Provider value={{
       transactions,
       fetchTransactions,
-      createTransaction
+      createTransaction,
+      deleteTransaction
     }}>
       {children}
     </TransactionsContext.Provider>
