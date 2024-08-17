@@ -55,22 +55,6 @@
       "type": "outcome",
       "createdAt": "2024-08-16T20:14:10.968Z",
       "id": 7
-    },
-    {
-      "description": "Pizza",
-      "category": "Alimentação",
-      "price": 80,
-      "type": "outcome",
-      "createdAt": "2024-08-16T20:15:52.261Z",
-      "id": 8
-    },
-    {
-      "description": "Pagamento Letícia",
-      "category": "Programa",
-      "price": 100,
-      "type": "outcome",
-      "createdAt": "2024-08-16T20:35:18.937Z",
-      "id": 9
     }
   ]
 }
