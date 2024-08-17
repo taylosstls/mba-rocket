@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContextSelector } from "use-context-selector";
+import { Trash } from "phosphor-react";
 
 import {
   PriceHighlight,
@@ -6,18 +7,20 @@ import {
   TransactionsTable,
 } from "./styles";
 
+import { Button } from "../../components/atoms/Button";
+
 import { SearchForm } from "../../components/molecules/SearchForm";
 
 import { Header } from "../../components/organisms/Header";
 import { Summary } from "../../components/organisms/Summary";
 
 import { TransactionsContext } from "../../contexts/TransactionsContext";
+
 import { formatCurrency, formatDate } from "../../utils/formatter";
-import { Trash } from "phosphor-react";
-import { Button } from "../../components/atoms/Button";
 
 export function Transactions() {
-  const { transactions, deleteTransaction } = useContext(TransactionsContext);
+  const transactions = useContextSelector(TransactionsContext, (context) => context.transactions);
+  const deleteTransaction = useContextSelector(TransactionsContext, (context) => context.deleteTransaction);
 
   return (
     <div>

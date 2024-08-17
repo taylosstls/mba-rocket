@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContextSelector } from "use-context-selector";
 import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from "phosphor-react";
 
 import { SummaryContainer } from "./styles";
@@ -10,7 +10,7 @@ import { TransactionsContext } from "../../../contexts/TransactionsContext";
 import { useSummary } from "../../../hooks/useSummary";
 
 export function Summary() {
-  const { transactions } = useContext(TransactionsContext);
+  const transactions = useContextSelector(TransactionsContext, (context) => context.transactions);
 
   const { income, outcome, total } = useSummary(transactions);
 
