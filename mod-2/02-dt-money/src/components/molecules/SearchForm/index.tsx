@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useContextSelector } from "use-context-selector";
 import { useForm } from "react-hook-form";
 import { MagnifyingGlass } from "phosphor-react";
@@ -18,7 +19,7 @@ const searchFormSchema = z.object({
 
 type SearchFormInputs = z.infer<typeof searchFormSchema>
 
-export function SearchForm() {
+function SearchFormComponent() {
   const fetchTransactions = useContextSelector(TransactionsContext, (context) => context.fetchTransactions);
 
   const {
@@ -55,3 +56,6 @@ export function SearchForm() {
     </SearchFormContainer>
   )
 }
+
+// Deep comparison = Hooks changed / props changed
+export const SearchForm = memo(SearchFormComponent)

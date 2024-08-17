@@ -50,6 +50,7 @@ export function NewTransactionModal({ setIsOpen }: NewTransactionModalProps) {
 
   async function handleSearchTransactions(data: NewTransactionFormInputs) {
     await createTransaction(data)
+
     reset({
       description: '',
       price: 0,
