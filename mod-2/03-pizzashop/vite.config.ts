@@ -1,6 +1,7 @@
-import path from "node:path"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
+import path from "node:path";
+
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react()],
@@ -9,4 +10,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-})
+});
