@@ -5,6 +5,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Loader2 } from "lucide-react";
 
 const signInFormSchema = z.object({
   email: z.string().email(),
@@ -13,10 +14,16 @@ const signInFormSchema = z.object({
 type SignInForm = z.infer<typeof signInFormSchema>;
 
 export function SignIn() {
-  const { register, handleSubmit } = useForm<SignInForm>();
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<SignInForm>();
 
-  function handleSignIn(data: SignInForm) {
+  async function handleSignIn(data: SignInForm) {
     console.log(data);
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
   }
   return (
     <>
@@ -35,11 +42,19 @@ export function SignIn() {
           <form onSubmit={handleSubmit(handleSignIn)} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Seu e-mail</Label>
-              <Input id="email" type="email" {...register("email")} />
+              <Input id="email" type="email" {...register("email")} required />
             </div>
 
-            <Button className="w-full" type="submit">
-              Acessar painel
+            <Button
+              className="flex w-full items-center justify-center"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <Loader2 className="animate-spin" size={20} />
+              ) : (
+                "Acessar painel"
+              )}
             </Button>
           </form>
         </div>
