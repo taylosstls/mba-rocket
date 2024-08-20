@@ -9,7 +9,7 @@ export function App() {
   return (
     <HelmetProvider>
       <Helmet titleTemplate="%s | Pizza.shop" />
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </HelmetProvider>
   );
 }
