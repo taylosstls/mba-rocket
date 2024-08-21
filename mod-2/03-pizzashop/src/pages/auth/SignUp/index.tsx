@@ -1,0 +1,163 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowLeft, Loader2 } from "lucide-react";
+import { ChangeEvent } from "react";
+import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { formatPhoneNumber } from "@/utils/formatPhoneNumber";
+
+// Expressões regulares para validação de telefone
+const landlineRegex = /^\(\d{2}\) \d{4}-\d{4}$/;
+const mobileRegex = /^\(\d{2}\) \d{1} \d{4}-\d{4}$/;
+
+const signUpFormSchema = z.object({
+  restaurantName: z.string().min(1, "Campo obrigatório"),
+  managerName: z.string().min(1, "Campo obrigatório"),
+  phone: z
+    .string()
+    .min(1, "Campo obrigatório")
+    .refine((value) => landlineRegex.test(value) || mobileRegex.test(value), {
+      message: "Telefone inválido",
+    }),
+  email: z.string().min(1, "Campo obrigatório").email("Email inválido"),
+});
+
+type SignUpForm = z.infer<typeof signUpFormSchema>;
+
+export function SignUp() {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { isSubmitting, errors },
+  } = useForm<SignUpForm>({
+    resolver: zodResolver(signUpFormSchema),
+  });
+
+  async function handleSignUp(data: SignUpForm) {
+    try {
+      if (!data.email) throw new Error();
+
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      toast.success("Autenticação solicitada!", {
+        description: "Um link foi enviado para o e-mail cadastrado.",
+      });
+
+      console.log(data);
+    } catch (error) {
+      toast.error("Ops! Algo deu errado.", {
+        description: "Erro de envio do link, tente novamente.",
+        action: {
+          label: "Reenviar",
+          onClick: () => handleSignUp(data),
+        },
+      });
+    }
+  }
+
+  function handlePhoneChange(e: ChangeEvent<HTMLInputElement>) {
+    const formattedPhone = formatPhoneNumber(e.target.value);
+    setValue("phone", formattedPhone, {
+      shouldValidate: true,
+      shouldTouch: true,
+    });
+  }
+
+  return (
+    <>
+      <Helmet title="Cadastro" />
+      <div className="w-full p-8">
+        <Button asChild className="absolute left-6 top-8" variant={"ghost"}>
+          <Link to={"/sign-in"} className="flex flex-row gap-2 align-middle">
+            <ArrowLeft size={16} /> Voltar
+          </Link>
+        </Button>
+
+        <div className="flex w-full max-w-[350px] flex-col justify-center gap-6">
+          <div className="flex flex-col gap-2 text-center">
+            <h1 className="text-2xl font-semibold tracking-tight">
+              Crie sua conta gratuitamente
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Seja um parceiro e comece suas vendas!
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit(handleSignUp)} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="restaurantName">Nome do estabelecimento</Label>
+              <Input
+                id="restaurantName"
+                type="text"
+                {...register("restaurantName")}
+              />
+            </div>
+            {errors.restaurantName && (
+              <sub className="text-right text-xs text-red-600">
+                {errors.restaurantName.message}
+              </sub>
+            )}
+
+            <div className="space-y-2">
+              <Label htmlFor="managerName">Seu nome</Label>
+              <Input
+                id="managerName"
+                type="text"
+                {...register("managerName")}
+              />
+            </div>
+            {errors.managerName && (
+              <sub className="text-right text-xs text-red-600">
+                {errors.managerName.message}
+              </sub>
+            )}
+
+            <div className="space-y-2">
+              <Label htmlFor="email">Seu e-mail</Label>
+              <Input id="email" type="email" {...register("email")} />
+            </div>
+            {errors.email && (
+              <sub className="text-right text-xs text-red-600">
+                {errors.email.message}
+              </sub>
+            )}
+
+            <div className="space-y-2">
+              <Label htmlFor="phone">Seu telefone/celular</Label>
+              <Input
+                id="phone"
+                type="tel"
+                {...register("phone")}
+                onChange={handlePhoneChange}
+                maxLength={15}
+              />
+            </div>
+            {errors.phone && (
+              <sub className="text-right text-xs text-red-600">
+                {errors.phone.message}
+              </sub>
+            )}
+
+            <Button
+              className="flex w-full items-center justify-center"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <Loader2 className="animate-spin" size={20} />
+              ) : (
+                "Realizar cadastro"
+              )}
+            </Button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}

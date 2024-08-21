@@ -5,6 +5,8 @@ import { AuthTemplate } from "@/components/templates/Auth";
 import { Dashboard } from "@/pages/app/Dashboard";
 import { SignIn } from "@/pages/auth/SignIn";
 
+import { SignUp } from "./pages/auth/SignUp";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +16,11 @@ export const router = createBrowserRouter([
   {
     path: "/sign-in",
     element: <AuthTemplate />,
-    children: [{ path: "/sign-in", element: <SignIn /> }],
+    children: [{ path: "", element: <SignIn /> }],
+  },
+  {
+    path: "/sign-up",
+    element: <AuthTemplate />,
+    children: [{ path: "", element: <SignUp /> }],
   },
 ]);
