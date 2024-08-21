@@ -3,7 +3,7 @@ import { ArrowLeft, Loader2 } from "lucide-react";
 import { ChangeEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { z } from "zod";
 
@@ -31,31 +31,46 @@ const signUpFormSchema = z.object({
 type SignUpForm = z.infer<typeof signUpFormSchema>;
 
 export function SignUp() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { isSubmitting, errors },
   } = useForm<SignUpForm>({
     resolver: zodResolver(signUpFormSchema),
   });
 
   async function handleSignUp(data: SignUpForm) {
+    const cleanedPhone = data.phone.replace(/\D/g, "");
+
+    const formattedData = {
+      ...data,
+      phone: cleanedPhone,
+    };
+
     try {
-      if (!data.email) throw new Error();
+      if (!formattedData.email) throw new Error();
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      toast.success("Autenticação solicitada!", {
-        description: "Um link foi enviado para o e-mail cadastrado.",
+      toast.success("Cadastro realizado!", {
+        description: "Oba! Agora vamos começar.",
+        action: {
+          label: "Login",
+          onClick: () => navigate("/sign-in"),
+        },
       });
 
-      console.log(data);
+      console.log(formattedData);
+      reset();
     } catch (error) {
       toast.error("Ops! Algo deu errado.", {
-        description: "Erro de envio do link, tente novamente.",
+        description: "Erro ao cadastrar seu restaurante, tente novamente.",
         action: {
           label: "Reenviar",
-          onClick: () => handleSignUp(data),
+          onClick: () => handleSignUp(formattedData),
         },
       });
     }
@@ -155,6 +170,18 @@ export function SignUp() {
                 "Realizar cadastro"
               )}
             </Button>
+
+            <p className="px-6 text-center text-sm leading-relaxed text-muted-foreground">
+              Ao prosseguir, você concorda com nossos{" "}
+              <a href="#" className="text-primary underline underline-offset-2">
+                Termos de uso
+              </a>{" "}
+              e{" "}
+              <a href="#" className="text-primary underline underline-offset-2">
+                Políticas de privacidade
+              </a>
+              .
+            </p>
           </form>
         </div>
       </div>

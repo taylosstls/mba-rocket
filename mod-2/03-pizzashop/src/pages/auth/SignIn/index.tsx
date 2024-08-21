@@ -20,6 +20,7 @@ export function SignIn() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting, errors },
   } = useForm<SignInForm>({
     resolver: zodResolver(signInFormSchema),
@@ -33,6 +34,8 @@ export function SignIn() {
       toast.success("Autenticação solicitada!", {
         description: "Um link foi enviado para o e-mail cadastrado.",
       });
+
+      reset();
     } catch (error) {
       toast.error("Ops! Algo deu errado.", {
         description: "Erro de envio do link, tente novamente.",
