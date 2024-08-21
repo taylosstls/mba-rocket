@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 const signInFormSchema = z.object({
   email: z.string().email(),
@@ -21,9 +22,22 @@ export function SignIn() {
   } = useForm<SignInForm>();
 
   async function handleSignIn(data: SignInForm) {
-    console.log(data);
+    try {
+      if (!data.email) throw new Error();
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      toast.success("Autenticação solicitada!", {
+        description: "Um link foi enviado para o e-mail cadastrado.",
+      });
+    } catch (error) {
+      toast.error("Ops! Algo deu errado.", {
+        description: "Erro de envio do link, tente novamente.",
+        action: {
+          label: "Reenviar",
+          onClick: () => handleSignIn(data),
+        },
+      });
+    }
   }
   return (
     <>
@@ -42,7 +56,7 @@ export function SignIn() {
           <form onSubmit={handleSubmit(handleSignIn)} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Seu e-mail</Label>
-              <Input id="email" type="email" {...register("email")} required />
+              <Input id="email" type="email" {...register("email")} />
             </div>
 
             <Button
