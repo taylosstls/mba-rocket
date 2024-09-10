@@ -87,7 +87,7 @@ export function SignUp() {
   return (
     <>
       <Helmet title="Cadastro" />
-      <div className="w-full p-8">
+      <div className="flex w-full flex-col items-center justify-center p-8">
         <Button asChild className="absolute left-6 top-8" variant={"ghost"}>
           <Link to={"/sign-in"} className="flex flex-row gap-2 align-middle">
             <ArrowLeft size={16} /> Voltar

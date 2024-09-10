@@ -49,7 +49,7 @@ export function SignIn() {
   return (
     <>
       <Helmet title="Login" />
-      <div className="w-full p-8">
+      <div className="flex w-full flex-col items-center justify-center p-8">
         <Button asChild className="absolute right-6 top-8" variant={"ghost"}>
           <Link to={"/sign-up"} className="flex flex-row gap-2 align-middle">
             Cadastrar-se <LogIn size={16} />
