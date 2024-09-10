@@ -1,8 +1,9 @@
 import { Home, Pizza, UtensilsCrossed } from "lucide-react";
 
+import { NavLink } from "@/components/atoms/nav-link";
+import { ThemeToggle } from "@/components/atoms/theme-toggle";
+import { AccountMenu } from "@/components/molecules/account-menu";
 import { Separator } from "@/components/ui/separator";
-
-import { NavLink } from "../atoms/nav-link";
 
 export function Header() {
   return (
@@ -23,6 +24,11 @@ export function Header() {
             Pedidos
           </NavLink>
         </nav>
+
+        <div className="ml-auto flex items-center gap-2">
+          <ThemeToggle />
+          <AccountMenu />
+        </div>
       </div>
     </div>
   );
