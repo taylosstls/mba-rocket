@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
-import { OrderTableFilters } from "@/components/molecules/order-table-filters";
-import { OrderTableRow } from "@/components/molecules/order-table-row";
+import { OrderTableFilters } from "@/components/molecules/orders/order-table-filters";
+import { OrderTableRow } from "@/components/molecules/orders/order-table-row";
 import { Pagination } from "@/components/molecules/pagination";
 import {
   Table,

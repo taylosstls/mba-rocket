@@ -1,10 +1,9 @@
 import { ArrowRight, Search, X } from "lucide-react";
 
+import { OrderDetails } from "@/components/molecules/orders/order-details";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { TableCell, TableRow } from "@/components/ui/table";
-
-import { OrderDetails } from "./order-details";
 
 //export interface OrderTableRowProps {}
 
