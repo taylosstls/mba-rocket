@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 
-import { CardDayOrdersAmountCount } from "@/components/molecules/cards-dashboard/card-day-orders-amount-count";
-import { CardMonthCanceledOrdersAmount } from "@/components/molecules/cards-dashboard/card-month-canceled-orders-amount";
-import { CardMonthOrdersAmount } from "@/components/molecules/cards-dashboard/card-month-orders-amount";
-import { CardMonthRevenue } from "@/components/molecules/cards-dashboard/card-month-revenue";
+import { CardDayOrdersAmountCount } from "@/components/molecules/dashboard/cards/card-day-orders-amount-count";
+import { CardMonthCanceledOrdersAmount } from "@/components/molecules/dashboard/cards/card-month-canceled-orders-amount";
+import { CardMonthOrdersAmount } from "@/components/molecules/dashboard/cards/card-month-orders-amount";
+import { CardMonthRevenue } from "@/components/molecules/dashboard/cards/card-month-revenue";
+import { ChartRevenue } from "@/components/molecules/dashboard/charts/chart-revenue";
 
 export function Dashboard() {
   return (
@@ -17,6 +18,10 @@ export function Dashboard() {
           <CardMonthOrdersAmount />
           <CardDayOrdersAmountCount />
           <CardMonthCanceledOrdersAmount />
+        </div>
+
+        <div className="grid grid-cols-9 gap-4">
+          <ChartRevenue />
         </div>
       </div>
     </>
