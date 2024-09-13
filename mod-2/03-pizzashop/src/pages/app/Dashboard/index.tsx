@@ -4,6 +4,7 @@ import { CardDayOrdersAmountCount } from "@/components/molecules/dashboard/cards
 import { CardMonthCanceledOrdersAmount } from "@/components/molecules/dashboard/cards/card-month-canceled-orders-amount";
 import { CardMonthOrdersAmount } from "@/components/molecules/dashboard/cards/card-month-orders-amount";
 import { CardMonthRevenue } from "@/components/molecules/dashboard/cards/card-month-revenue";
+import { ChartPopularProducts } from "@/components/molecules/dashboard/charts/chart-popular-products";
 import { ChartRevenue } from "@/components/molecules/dashboard/charts/chart-revenue";
 
 export function Dashboard() {
@@ -22,6 +23,7 @@ export function Dashboard() {
 
         <div className="grid grid-cols-9 gap-4">
           <ChartRevenue />
+          <ChartPopularProducts />
         </div>
       </div>
     </>
