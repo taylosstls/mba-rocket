@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { ChangeEvent } from "react";
 import { Helmet } from "react-helmet-async";
@@ -7,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { z } from "zod";
 
+import { registerRestaurant } from "@/api/register-restaurant";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -43,6 +45,10 @@ export function SignUp() {
     resolver: zodResolver(signUpFormSchema),
   });
 
+  const { mutateAsync: registerRestaurantFn } = useMutation({
+    mutationFn: registerRestaurant,
+  });
+
   async function handleSignUp(data: SignUpForm) {
     const cleanedPhone = data.phone.replace(/\D/g, "");
 
@@ -54,12 +60,18 @@ export function SignUp() {
     try {
       if (!formattedData.email) throw new Error();
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await registerRestaurantFn({
+        restaurantName: data.restaurantName,
+        managerName: data.managerName,
+        email: data.email,
+        phone: data.phone,
+      });
+
       toast.success("Cadastro realizado!", {
         description: "Oba! Agora vamos começar.",
         action: {
           label: "Login",
-          onClick: () => navigate("/sign-in"),
+          onClick: () => navigate(`/sign-in?email=${data.email}`),
         },
       });
 
