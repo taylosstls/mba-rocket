@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 import { OrderTableFilters } from "@/components/molecules/orders/order-table-filters";
 import { OrderTableRow } from "@/components/molecules/orders/order-table-row";
-import { Pagination } from "@/components/molecules/pagination";
+import { Pagination } from "@/components/molecules/page-navigation/pagination";
 import {
   Table,
   TableBody,
