@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Building, ChevronDown, LogOut } from "lucide-react";
+import { useState } from "react";
 
 import { GetManagedRestaurant } from "@/api/get-managed-restaurant";
 import { getProfile } from "@/api/get-profile";
@@ -17,6 +18,8 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function AccountMenu() {
+  const [isOpen, setIsOpen] = useState(false); // Controla a abertura/fechamento do modal
+
   const { data: profileInfo, isLoading: isLoadingProfileInfo } = useQuery({
     queryKey: ["profile-account"],
     queryFn: getProfile,
@@ -67,8 +70,14 @@ export function AccountMenu() {
 
           <DialogTrigger asChild>
             <DropdownMenuItem>
-              <Building className="mr-2 h-4 w-4" />
-              <span>Perfil da loja</span>
+              <Button
+                variant={"ghost"}
+                size={"nospace"}
+                onClick={() => setIsOpen(true)}
+              >
+                <Building className="mr-2 h-4 w-4" />
+                <span>Perfil da loja</span>
+              </Button>
             </DropdownMenuItem>
           </DialogTrigger>
 
@@ -79,7 +88,7 @@ export function AccountMenu() {
         </DropdownMenuContent>
       </DropdownMenu>
 
-      <StoreProfileDialog />
+      <StoreProfileDialog isOpen={isOpen} setIsOpen={setIsOpen} />
     </Dialog>
   );
 }
