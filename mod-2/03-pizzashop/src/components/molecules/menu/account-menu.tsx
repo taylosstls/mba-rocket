@@ -1,9 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { Building, ChevronDown, LogOut } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { GetManagedRestaurant } from "@/api/get-managed-restaurant";
 import { getProfile } from "@/api/get-profile";
+import { signOut } from "@/api/sign-out";
 import { StoreProfileDialog } from "@/components/molecules/profile/store-profile-dialog";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
@@ -19,6 +21,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function AccountMenu() {
   const [isOpen, setIsOpen] = useState(false); // Controla a abertura/fechamento do modal
+  const navigate = useNavigate();
 
   const { data: profileInfo, isLoading: isLoadingProfileInfo } = useQuery({
     queryKey: ["profile-account"],
@@ -32,6 +35,13 @@ export function AccountMenu() {
       staleTime: Infinity,
     },
   );
+
+  const { mutateAsync: signOutFn, isPending: isSigningOut } = useMutation({
+    mutationFn: signOut,
+    onSuccess: () => {
+      navigate("/sign-in", { replace: true });
+    },
+  });
 
   return (
     <Dialog>
@@ -81,9 +91,19 @@ export function AccountMenu() {
             </DropdownMenuItem>
           </DialogTrigger>
 
-          <DropdownMenuItem className="text-rose-500 dark:text-rose-400">
-            <LogOut className="mr-2 h-4 w-4" />
-            <span>Sair</span>
+          <DropdownMenuItem
+            className="text-rose-500 dark:text-rose-400"
+            disabled={isSigningOut}
+            asChild
+          >
+            <Button
+              variant={"ghost"}
+              size={"nospace"}
+              onClick={() => signOutFn()}
+            >
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Sair</span>
+            </Button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
