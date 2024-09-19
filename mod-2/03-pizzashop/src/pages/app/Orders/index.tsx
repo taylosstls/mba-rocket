@@ -1,5 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import { useSearchParams } from "react-router-dom";
 
+import { getOrders } from "@/api/get-orders";
 import { OrderTableFilters } from "@/components/molecules/orders/order-table-filters";
 import { OrderTableRow } from "@/components/molecules/orders/order-table-row";
 import { Pagination } from "@/components/molecules/page-navigation/pagination";
@@ -12,6 +15,15 @@ import {
 } from "@/components/ui/table";
 
 export function Orders() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const pageIndex = Number(searchParams.get("page") ?? 0);
+
+  const { data: ordersResult } = useQuery({
+    queryFn: () => getOrders({ pageIndex: pageIndex }),
+    queryKey: ["orders"],
+  });
+
   return (
     <>
       <Helmet title="Pedidos" />
@@ -38,9 +50,10 @@ export function Orders() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {Array.from({ length: 10 }).map((_, i) => {
-                  return <OrderTableRow key={i} />;
-                })}
+                {ordersResult &&
+                  ordersResult.orders.map((order) => {
+                    return <OrderTableRow key={order.orderId} order={order} />;
+                  })}
               </TableBody>
             </Table>
           </div>
