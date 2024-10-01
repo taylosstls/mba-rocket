@@ -1,8 +1,11 @@
+import { useMutation } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ArrowRight, Search, X } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
+import { cancelOrder } from "@/api/cancel-order";
 import { OrderStatus } from "@/components/atoms/order-status";
 import { OrderDetails } from "@/components/molecules/orders/order-details";
 import { Button } from "@/components/ui/button";
@@ -21,6 +24,13 @@ export interface OrderTableRowProps {
 
 export function OrderTableRow({ order }: OrderTableRowProps) {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
+  const { mutateAsync: cancelOrderFn } = useMutation({
+    mutationFn: cancelOrder,
+    async onSuccess(_, { orderId }) {
+      toast.success(`Pedido: ${orderId} cancelado`);
+    },
+  });
 
   return (
     <TableRow>
@@ -50,7 +60,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
       </TableCell>
       <TableCell className="font-medium">{order.customerName}</TableCell>
       <TableCell className="font-medium">
-        {order.total.toLocaleString("pt-BR", {
+        {(order.total / 100).toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         })}
@@ -62,7 +72,12 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
         </Button>
       </TableCell>
       <TableCell>
-        <Button variant={"ghost"} size={"xs"}>
+        <Button
+          disabled={!["pending", "processing"].includes(order.status)}
+          variant={"ghost"}
+          onClick={() => cancelOrderFn({ orderId: order.orderId })}
+          size={"xs"}
+        >
           <X className="mr-2 h-3 w-3" />
           Cancelar
         </Button>
