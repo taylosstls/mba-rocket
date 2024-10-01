@@ -18,14 +18,24 @@ import {
 export function Orders() {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const orderId = searchParams.get("orderId");
+  const customerName = searchParams.get("customerName");
+  const status = searchParams.get("status");
+
   const pageIndex = z.coerce
     .number()
     .transform((page) => page - 1)
     .parse(Number(searchParams.get("page") ?? "1"));
 
   const { data: ordersResult } = useQuery({
-    queryFn: () => getOrders({ pageIndex }),
-    queryKey: ["orders", pageIndex],
+    queryKey: ["orders", pageIndex, orderId, customerName, status],
+    queryFn: () =>
+      getOrders({
+        pageIndex,
+        customerName,
+        orderId,
+        status: status === "all" ? null : status,
+      }),
   });
 
   function handlePaginate(pageIndex: number) {
