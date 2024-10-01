@@ -1,6 +1,7 @@
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ArrowRight, Search, X } from "lucide-react";
+import { useState } from "react";
 
 import { OrderStatus } from "@/components/atoms/order-status";
 import { OrderDetails } from "@/components/molecules/orders/order-details";
@@ -19,10 +20,12 @@ export interface OrderTableRowProps {
 }
 
 export function OrderTableRow({ order }: OrderTableRowProps) {
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
   return (
     <TableRow>
       <TableCell>
-        <Dialog>
+        <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
           <DialogTrigger asChild>
             <Button variant={"outline"} size={"xs"}>
               <Search className="h-3 w-3" />
@@ -30,7 +33,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             </Button>
           </DialogTrigger>
 
-          <OrderDetails />
+          <OrderDetails orderId={order.orderId} open={isDetailsOpen} />
         </Dialog>
       </TableCell>
       <TableCell className="truncate font-mono text-sm font-medium">
@@ -43,9 +46,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
         })}
       </TableCell>
       <TableCell>
-        <div className="flex items-center gap-2">
-          <OrderStatus status={order.status} />
-        </div>
+        <OrderStatus status={order.status} />
       </TableCell>
       <TableCell className="font-medium">{order.customerName}</TableCell>
       <TableCell className="font-medium">
