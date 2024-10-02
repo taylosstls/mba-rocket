@@ -6,6 +6,7 @@ import { z } from "zod";
 import { getOrders } from "@/api/Orders/List/get-orders";
 import { OrderTableFilters } from "@/components/molecules/orders/order-table-filters";
 import { OrderTableRow } from "@/components/molecules/orders/order-table-row";
+import { OrderTableSkeleton } from "@/components/molecules/orders/order-table-skeleton";
 import { Pagination } from "@/components/molecules/page-navigation/pagination";
 import {
   Table,
@@ -27,7 +28,7 @@ export function Orders() {
     .transform((page) => page - 1)
     .parse(Number(searchParams.get("page") ?? "1"));
 
-  const { data: ordersResult } = useQuery({
+  const { data: ordersResult, isLoading: isLoadingOrders } = useQuery({
     queryKey: ["orders", pageIndex, orderId, customerName, status],
     queryFn: () =>
       getOrders({
@@ -72,6 +73,7 @@ export function Orders() {
                 </TableRow>
               </TableHeader>
               <TableBody>
+                {isLoadingOrders && <OrderTableSkeleton />}
                 {ordersResult &&
                   ordersResult.orders.map((order) => {
                     return <OrderTableRow key={order.orderId} order={order} />;
