@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import { z } from "zod";
 
-import { getOrders } from "@/api/get-orders";
+import { getOrders } from "@/api/Orders/List/get-orders";
 import { OrderTableFilters } from "@/components/molecules/orders/order-table-filters";
 import { OrderTableRow } from "@/components/molecules/orders/order-table-row";
 import { Pagination } from "@/components/molecules/page-navigation/pagination";

@@ -3,9 +3,9 @@ import { Building, ChevronDown, LogOut } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { GetManagedRestaurant } from "@/api/get-managed-restaurant";
-import { getProfile } from "@/api/get-profile";
-import { signOut } from "@/api/sign-out";
+import { getProfile } from "@/api/Account/Profile/get-profile";
+import { signOut } from "@/api/Account/Sign/sign-out";
+import { GetManagedRestaurant } from "@/api/Orders/Manage/get-managed-restaurant";
 import { StoreProfileDialog } from "@/components/molecules/profile/store-profile-dialog";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";

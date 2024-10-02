@@ -5,11 +5,11 @@ import { ArrowRight, Loader2, Search, X } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { approveOrder } from "@/api/approve-order";
-import { cancelOrder } from "@/api/cancel-order";
-import { deliverOrder } from "@/api/deliver-order";
-import { dispatchOrder } from "@/api/dispatch-order.ts";
-import { GetOrdersResponse } from "@/api/get-orders";
+import { GetOrdersResponse } from "@/api/Orders/List/get-orders";
+import { approveOrder } from "@/api/Orders/Manage/approve-order";
+import { cancelOrder } from "@/api/Orders/Manage/cancel-order";
+import { deliverOrder } from "@/api/Orders/Manage/deliver-order";
+import { dispatchOrder } from "@/api/Orders/Manage/dispatch-order.ts";
 import { OrderStatus, Status } from "@/components/atoms/order-status";
 import { OrderDetails } from "@/components/molecules/orders/order-details";
 import { Button } from "@/components/ui/button";
