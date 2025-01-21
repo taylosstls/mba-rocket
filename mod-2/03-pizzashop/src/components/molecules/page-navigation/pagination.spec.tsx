@@ -7,7 +7,7 @@ const onPageChangeCallback = vi.fn()
 
 describe('Pagination', () => {
   beforeEach(() => {
-    onPageChangeCallback.mockClear()
+    onPageChangeCallback.mockClear() // Limpar o callback para evitar chamada anterior
   })
 
   it('should display the right amount of pages and results', () => {
