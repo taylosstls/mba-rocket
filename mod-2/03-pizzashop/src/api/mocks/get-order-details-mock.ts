@@ -2,6 +2,7 @@ import { http, HttpResponse } from 'msw'
 
 import { GetOrderDetailsParams, GetOrderDetailsResponse } from '../Orders/Details/get-order-details'
 
+// http = parâmetro, body, response
 export const getOrderDetailsMock = http.get<
   GetOrderDetailsParams,
   never,
@@ -16,7 +17,7 @@ export const getOrderDetailsMock = http.get<
     },
     status: 'pending',
     createdAt: new Date().toISOString(),
-    totalInCents: 5000,
+    totalInCents: 5000, // preço em centavos
     orderItems: [
       {
         id: 'order-item-1',
