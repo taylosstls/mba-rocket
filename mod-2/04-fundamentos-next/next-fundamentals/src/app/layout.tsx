@@ -24,9 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={inter.className}>
+        <div>Cabeçalho</div>
         {children}
       </body>
     </html>
