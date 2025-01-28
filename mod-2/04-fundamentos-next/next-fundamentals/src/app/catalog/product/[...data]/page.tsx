@@ -26,7 +26,9 @@ export default async function Product({ params }: ProductProps) {
       <p>Size: {size}</p>
       <p>Color: {color}</p>
 
-      <AddToCartButton />
+      <AddToCartButton>
+        <Test />
+      </AddToCartButton>
     </div>
   );
 }
