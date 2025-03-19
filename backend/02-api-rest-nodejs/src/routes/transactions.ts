@@ -5,6 +5,10 @@ import { knex } from '../database'
 import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
 
 export async function transactionsRoutes(app: FastifyInstance) {
+  app.addHook('preHandler', async (request, response) => {
+    console.log(`[$(request.method)] $(request.url) `)
+  })
+
   app.get('/', { preHandler: [checkSessionIdExists] },
     async (request) => {
       const { sessionId } = request.cookies
@@ -47,7 +51,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
     },
   )
 
-  app.post('/', async (request, reply) => {
+  app.post('/', async (request, response) => {
     const createTransactionBodySchema = z.object({
       title: z.string(),
       amount: z.number(),
@@ -63,7 +67,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
     if (!sessionId) {
       sessionId = randomUUID()
 
-      reply.setCookie('sessionId', sessionId, {
+      response.setCookie('sessionId', sessionId, {
         path: '/',
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
       })
@@ -76,6 +80,6 @@ export async function transactionsRoutes(app: FastifyInstance) {
       session_id: sessionId,
     })
 
-    return reply.status(201).send()
+    return response.status(201).send()
   })
 }
